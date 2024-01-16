@@ -2,4 +2,5 @@
 .AppleDouble
 .LSOverride
 .vs
-images/git
+images/
+_key.js
