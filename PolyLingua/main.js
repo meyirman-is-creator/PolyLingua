@@ -41,6 +41,7 @@ removePhoto.onclick = function(){
   image.src = "images/without-img.jpg";
 };
 uploadPhoto.addEventListener("change", function (e) {
+  // ;okajiefhfjdksl
   
   const files = e.target.files;
   if (files && files.length > 0) {
