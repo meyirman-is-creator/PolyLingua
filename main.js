@@ -92,6 +92,7 @@ uploadPhoto.addEventListener("change", function (e) {
   crop.classList.add("crop-dop");
   move.classList.remove("move-dop");
 });
+// check
 savePhoto.addEventListener('click', function () {
   const croppedCanvas = cropper.getCroppedCanvas();
   body.classList.remove("body-cut");
