@@ -16,9 +16,9 @@ body {
   }
 }
 .body {
-  height: 100vh;
   position: relative;
   width: 100%;
+  padding: 0;
 }
 .body.body-cut .cut {
   animation: popup-animation 0.5s ease forwards;
@@ -29,21 +29,18 @@ body {
 }
 .body.body-cut .body__inner {
   z-index: -1;
+  box-shadow: none;
 }
 .cut {
-  position: relative;
-  height: 100vh;
-  background-color: #171730ec;
+  position: absolute;
   width: 100%;
+  opacity: 0;
+  z-index: 2;
 }
 .body__inner {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  left: 50%;
+  
   width: 820px;
-
-  transform: translate(-50%, -50%);
+  margin: 100px auto 0;
   border-radius: 30px;
   text-align: center;
   padding: 40px 0;
@@ -57,7 +54,7 @@ body {
   margin-bottom: 25px;
 }
 .body__form label {
-  width: 360px;
+  max-width: 360px;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -157,17 +154,17 @@ body {
 }
 .male {
   width: 17px;
-  background-image: url("images/male__noActive.svg");
+  background-image: url("../images/male__noActive.svg");
 }
 .female {
-  background-image: url("images/female__noActive.svg");
+  background-image: url("../images/female__noActive.svg");
 }
 .male__input:checked + .male {
-  background-image: url("images/male__Active.svg");
+  background-image: url("../images/male__Active.svg");
   color: #ffffff;
 }
 .female__input:checked + .female {
-  background-image: url("images/female__Active.svg");
+  background-image: url("../images/female__Active.svg");
 }
 .male__input:checked + .male + .radio__text {
   color: #ffffff;
@@ -213,19 +210,16 @@ body {
   margin: 0 auto;
 }
 .cut__photo {
+  margin: 20px auto;
   padding: 30px 0;
   text-align: center;
   z-index: 1;
   background-color: #202040;
-  position: absolute;
-  top: 50%;
-  right: 50%;
+  position: relative;
   box-shadow: -3px -3px 10px 0px rgba(169, 34, 253, 0.25),
     3px 3px 10px 0px rgba(169, 34, 253, 0.25);
-  left: 50%;
   border-radius: 30px;
   width: 720px;
-  transform: translate(-50%, -50%);
 }
 .cut__photo-title {
   position: relative;

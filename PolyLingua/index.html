@@ -10,8 +10,7 @@
     />
     <link
       rel="stylesheet"
-      href="../node_modules/cropperjs/dist/cropper.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
@@ -30,7 +29,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/media.css" />
   </head>
   <body>
     <div id="body-container" class="body body-close">
@@ -110,7 +110,8 @@
               autocomplete="off"
               id="firstName"
               placeholder="First Name"
-              type="text" required 
+              type="text"
+              required
             />
           </label>
           <label for="lastName" class="last__name">
@@ -119,23 +120,28 @@
               autocomplete="off"
               id="lastName"
               placeholder="Last Name"
-              type="text" required 
+              type="text" required
             />
           </label>
           <label for="age" class="age">
             <i class="fi fi-rr-circle-user"></i>
-            <input autocomplete="off" id="age" placeholder="Age" type="text" required  />
+            <input
+              autocomplete="off"
+              id="age"
+              placeholder="Age"
+              type="text"
+              required
+            />
           </label>
-          
-          
-          
+
           <label for="createPassword" class="create__password">
             <i class="fi fi-rr-lock"></i>
             <input
               autocomplete="off"
               id="createPassword"
               placeholder="Create Password"
-              type="password" required 
+              type="password"
+              required
             />
           </label>
           <label for="confirmPassword" class="confirm__password">
@@ -144,10 +150,11 @@
               autocomplete="off"
               id="confirmPassword"
               placeholder="Confirm Password"
-              type="password" required 
+              type="password"
+              required
             />
           </label>
-          
+
           <div class="language-container">
             <i class="fi fi-rr-language"></i>
             <select class="language__select" id="languages" name="language">
@@ -192,7 +199,6 @@
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-    <script type="module" src="_key.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
