@@ -1,0 +1,12 @@
+@media (max-width: 992px){
+    .syrtta{
+        display: none;
+
+    }
+    .ishinde{
+        display: block;
+    }
+    .navbar-brand__syrtta{
+        display: none;
+    }
+}

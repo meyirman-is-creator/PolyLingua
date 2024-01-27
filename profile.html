@@ -12,18 +12,32 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
     />
-    <link rel="stylesheet" href="profile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/profile.css" />
+    <link rel="stylesheet" href="style/profile__media.css" />
   </head>
   <body>
     <section class="profile">
       <div class="container">
         <div class="profile__inner">
           <div class="profile__right">
-            <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+            <nav class="navbar navbar-expand-lg">
               <div class="container-fluid">
-                <a class="navbar-brand" href="#">PolyLingua</a>
+                <a class="navbar-brand navbar-brand__syrtta" href="#">
+                  <i class="fi fi-rr-books"></i>
+                  <span>PolyLingua</span>
+                </a>
                 <button
                   class="navbar-toggler"
                   type="button"
@@ -40,12 +54,13 @@
                   aria-labelledby="offcanvasNavbarLabel"
                 >
                   <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                      Menu
-                    </h5>
+                    <a class="navbar-brand" href="#">
+                      <i class="fi fi-rr-books"></i>
+                      <span>PolyLingua</span>
+                    </a>
                     <button
                       type="button"
-                      class="btn-close text-reset"
+                      class="btn-close text-reset bg-white"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     ></button>
@@ -53,27 +68,41 @@
                   <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"
-                          >Profile</a
-                        >
+                        <a class="nav-link active" aria-current="page" href="#">
+                          <i class="fi fi-sr-user"></i>
+                          <span>Profile</span>
+                        </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Course</a>
+                        <a class="nav-link" href="#">
+                          <i class="fi fi-rr-graduation-cap"></i>
+                          <span>Course</span>
+                        </a>
                       </li>
-                      <button type="button" class="btn btn-outline-primary">
-                        Primary
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary ishinde"
+                      >
+                        <i class="fi fi-rr-exit"></i>
+                        <span>Sign out</span>
                       </button>
                     </ul>
                   </div>
                 </div>
               </div>
             </nav>
+            <button type="button" class="btn btn-outline-primary syrtta">
+              <i class="fi fi-rr-exit"></i>
+              <span>Sign out</span>
+            </button>
           </div>
           <div class="profile__left">
             <header class="profile__header">
-              <button type="button" class="btn btn-primary">
-                <i class="fi fi-rr-user"></i>
-              </button>
+              <div class="header__btns">
+                <button type="button" class="btn btn-primary user-btn">
+                  <i class="fi fi-sr-user"></i>
+                </button>
+              </div>
             </header>
             <div class="profile__body"></div>
           </div>
