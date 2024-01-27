@@ -118,7 +118,7 @@ body{
 }
 .profile__header{
     background-color: #202040;
-    height: 105px;
+    height: 100px;
     width: 100%;
     border-radius: 30px;
 
@@ -131,17 +131,17 @@ body{
 }
 .profile__header{
     display: flex;
-    justify-content:right;
+    justify-content:space-between;
     align-items: center;
-    padding-right: 35px;
+    padding: 0 25px;
 }
 .user-btn{
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     color: #202040;
     background-color: #fff;
-    font-size: 25px;
+    font-size: 15px;
     border: none;
 }
 .user-btn i{
@@ -149,4 +149,12 @@ body{
 }
 .user-btn:hover {
     background-color: #8A8AC3;
+}
+.navbar-toggler{
+    display: none;
+    color: #fff;
+    font-size: 25px;
+}
+.navbar-toggler i{
+    line-height: 25px;
 }

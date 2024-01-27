@@ -1,4 +1,4 @@
-@media (max-width: 992px){
+@media (max-width: 991px){
     .syrtta{
         display: none;
 
@@ -8,5 +8,16 @@
     }
     .navbar-brand__syrtta{
         display: none;
+    }
+    .profile__header {
+        height: 50px;
+    }
+    .user-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 10px;
+    }
+    .navbar-toggler{
+        display: block;
     }
 }
