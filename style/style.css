@@ -45,8 +45,6 @@ body {
   text-align: center;
   padding: 40px 0;
   background: #202040;
-  box-shadow: -3px -3px 10px 0px rgba(169, 34, 253, 0.25),
-    3px 3px 10px 0px rgba(169, 34, 253, 0.25);
 }
 .body__title {
   font-size: 24px;
@@ -216,11 +214,10 @@ body {
   z-index: 1;
   background-color: #202040;
   position: relative;
-  box-shadow: -3px -3px 10px 0px rgba(169, 34, 253, 0.25),
-    3px 3px 10px 0px rgba(169, 34, 253, 0.25);
   border-radius: 30px;
   width: 720px;
 }
+
 .cut__photo-title {
   position: relative;
   text-align: center;
