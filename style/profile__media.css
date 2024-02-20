@@ -1,23 +1,163 @@
-@media (max-width: 991px){
-    .syrtta{
+@media (max-width: 1200px) {
+    .images__upload-photo__btn {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 991px) {
+    ::-webkit-scrollbar {
+        width: 10px;
+        padding-top: 10px;  
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #15152a;
+    }
+    ::-moz-scrollbartrack {
+        background-color: transparent;
+        
+    }
+
+    .syrtta {
         display: none;
 
     }
-    .ishinde{
+
+    .ishinde {
         display: block;
     }
-    .navbar-brand__syrtta{
+
+    .navbar-brand__syrtta {
         display: none;
     }
+
     .profile__header {
         height: 50px;
     }
+
     .user-btn {
         width: 35px;
         height: 35px;
         font-size: 10px;
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
         display: block;
+    }
+    .profile__body{
+        border-radius: 30px 0 30px 30px;
+
+    }
+
+
+    .profile__body-top {
+        display: inline-table;
+    }
+
+    .profile__body-bottom {
+        position: sticky;
+        bottom: 0px;
+        z-index: 3;
+        background-color: #202040;
+        padding: 20px 0 30px;
+        box-shadow: #202040;
+    }
+    .profile-form__top{
+        overflow: auto;
+        justify-content: center;
+        display: flex;  
+    }
+}
+@media (max-width: 768px) {
+    .images__upload-photo__btn {
+        width: 200px;
+        height: 200px;
+    }
+}
+@media (max-width: 470px) {
+    .images__upload-photo__btn i {
+        font-size: 50px;
+    }
+
+
+    .images__upload-photo__btn {
+        width: 150px;
+        height: 150px;
+    }
+    .content-data label {
+        max-width: 250px;
+    }
+    .language-container {
+        width: 250px;
+    }
+
+    .cut__photo-img {
+        max-width: 90%;
+        height: 90%;
+        margin: 0 auto;
+    }
+    .cut__photo-img img {
+        max-width: 90%;
+        max-height: 90%;
+        margin: 0 auto;
+    }
+    .upload__photo-cut {
+        width: 90%;
+    }
+    .modal-footer {
+        width: 90%;
+    }
+}
+@media (max-width: 350px) {
+    .images__upload-photo__btn {
+        width: 100px;
+        height: 100px;
+    }
+    .content-data label {
+        max-width: 200px;
+    }
+    .language-container {
+        width: 200px;
+    }
+    .content-data input {
+        font-size: 14px;
+    }
+    .content-data label i {
+        font-size: 16px;
+    }
+    .fi-rr-language {
+        font-size: 16px;
+    }
+    .language__select {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .profile__body-bottom {
+        max-width: 220px;
+        display: grid;
+        grid-template-columns: 1fr 75px;
+        margin: 0 auto;
+    }
+    .save-content {
+        width: auto;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .cancel-content {
+        width: auto;
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+@media (max-width: 300px) {
+    .content-data label {
+        max-width: 175px;
+    }
+    .language-container {
+        width: 175px;
+    }
+    .profile__body-bottom {
+        max-width: 200px;
     }
 }

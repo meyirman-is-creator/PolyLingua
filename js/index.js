@@ -35,7 +35,7 @@ const firebaseConfig = {
 let move = document.getElementById("move");
 let crop = document.getElementById("crop");
 let cropper;
-
+let toLogin = document.getElementById('toLogin')
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
@@ -65,6 +65,8 @@ let result = document.getElementById("cropped_image_result");
 let cutPhotoLabel = document.querySelector("#cut__photo-label");
 let removePhoto = document.getElementById("remove-photo");
 let selectBox = document.getElementById('languages');
+let toEmail = document.getElementById('toEmail');
+let emailIcon = toEmail.previousElementSibling;
 removePhoto.onclick = function(){
   uploadPhotoLabel.style.backgroundImage = '';
   uploadPhotoLabel.classList.remove("upload-active");
@@ -75,7 +77,9 @@ removePhoto.onclick = function(){
 };
 // https://firebasestorage.googleapis.com/v0/b/polylingua-94f50.appspot.com/o/WhatsApp%20Image%202024-01-11%20at%2011.06.09.jpeg?alt=media&token=2aa98361-69de-4224-896a-90cc0951b813
 let uploadedImageUrl = null;
-
+toLogin.addEventListener('click',()=>{
+  window.open('main_page.html','_self')
+});
 uploadPhoto.addEventListener("change", function (e) {
   
   const files = e.target.files;
@@ -170,7 +174,13 @@ age.addEventListener("input", function () {
     ageIcon.classList.remove("active");
   }
 });
-
+toEmail.addEventListener('input', ()=>{
+  if (toEmail.value !== "") {
+    emailIcon.classList.add("active");
+  } else {
+    emailIcon.classList.remove("active");
+  }
+});
 createPassword.addEventListener("input", function () {
   if (createPassword.value !== "") {
     createPasswordIcon.classList.add("active");

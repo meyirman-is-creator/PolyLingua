@@ -33,7 +33,46 @@
   </head>
   <body>
     <section class="main-page">
+
       <div class="container">
+        <div id="myModal" class="modal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <label class="email" for="toEmail">
+                  <i class="fi fi-rr-envelope"></i>
+                  <input
+                    class="email_input"
+                    autocomplete="off"
+                    id="toEmail"
+                    placeholder="Email"
+                    type="text"
+                    required
+                  />
+                </label>
+                <label for="createPassword" class="create__password">
+                  <i class="fi fi-rr-lock"></i>
+                  <input
+                    class="password_input"
+                    autocomplete="off"
+                    id="createPassword"
+                    placeholder="Password"
+                    type="password"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="modal-footer">
+                <button id="to-sign-up" type="button" class="btn  sign-up-btn-modal" data-bs-dismiss="modal">Sign Up</button>
+                <button id="to-sign-in" type="button" class="btn  sign-in-btn-modal">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="main-page__inner">
           <div class="main-page__right">
             <nav class="navbar navbar-expand-lg">
@@ -64,8 +103,8 @@
                   <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">
-                          <i class="fi fi-sr-user"></i>
+                        <a id="toProfile" class="nav-link" aria-current="page" href="#">
+                          <i class="fi fi-rr-user"></i>
                           <span>Profile</span>
                         </a>
                       </li>
@@ -106,6 +145,11 @@
               <div class="header__btns">
                 <button type="button" class="btn btn-primary user-btn">
                   <i class="fi fi-sr-user"></i>
+                </button>
+                <button id="open-login" type="button" class="btn btn-outline-primary syrtta syrtta-login">
+                  <span>Login</span>
+                  <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+
                 </button>
               </div>
             </header>

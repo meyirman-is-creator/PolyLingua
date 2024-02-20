@@ -6,6 +6,8 @@ let cropper;
 let avatar = document.getElementById('upload__img');
 let savePhotoModal = document.getElementById('save-photo-modal');
 let modalPreview = document.getElementById('display_image_data');
+let removeUploadImg = document.getElementById('remove-upload-img');
+let toCourse = document.getElementById('toCourse');
 let myModal = new bootstrap.Modal(document.getElementById("myModal"), {
   keyboard: false,
 });
@@ -54,6 +56,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.querySelector(".cropper-wrap-box").nextElementSibling.classList.add("cropper-crop");
   };
 });
+removeUploadImg.addEventListener('click', function(){
+  blb=null;
+  avatar.style.backgroundImage  = 'null';
+  avatar.style.background= "#8a8ac3";
+  avatar.style.backgroundPosition= "center";
+  avatar.style.backgroundSize= "cover";
+  avatar.style.backgroundRepeat= "no-repeat";
+  removeUploadImg.classList.remove('images-delete-avatar');
+  avatar.classList.remove("upload-active");
+});
 let blb = null;
 savePhotoModal.addEventListener('click', function () {
   myModal.hide();
@@ -63,5 +75,9 @@ savePhotoModal.addEventListener('click', function () {
     var croppedImageURL = URL.createObjectURL(blob);
     avatar.style.backgroundImage = 'url("' + croppedImageURL + '")';
     avatar.classList.add("upload-active");
+    removeUploadImg.classList.add('images-delete-avatar');
   });
+});
+toCourse.addEventListener('click', ()=>{
+  window.open('./main_page.html', '_self')
 });
