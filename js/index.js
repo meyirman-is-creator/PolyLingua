@@ -196,120 +196,9 @@ email.addEventListener('input', () => {
   }
 });
 toLogin.addEventListener('click', () => {
-  window.open('main_page.html', '_self')
+  window.open('index.html', '_self')
 });
 let imgUrl = '';
-// signUp.onclick = function () {
-//   event.preventDefault();
-//   let gender1;
-//   let radios = document.getElementsByName("gender");
-//   for (var radio of radios) {
-//     if (radio.checked) {
-//       gender1 = radio.value;
-//     }
-//   }
-
-//   let obj = {
-//     firstName: firstName.value,
-//     lastName: lastName.value,
-//     age: age.value,
-//     gender: gender1,
-//     email: email.value,
-//     createPassword: createPassword.value,
-//     confirmPassword: confirmPassword.value,
-//     uid: ''
-//   };
-//   if (obj.createPassword !== obj.confirmPassword) {
-//     alert('Passwords do not match. Please try again.');
-//     return;
-//   }
-//   createUserWithEmailAndPassword(auth, email.value, obj.createPassword)
-//     .then(function (success) {
-
-
-//     })
-//     .catch(function (err) {
-//       alert('Error: ' + err.message);
-//     });
-
-//   onAuthStateChanged(auth, (user) => {
-//     if (user == null) {
-//       return;
-//     }
-//     const uid = user.uid;
-//     obj.uid = uid;
-//     const storageRef = ref(storage, 'profile_pictures/' + uid);
-//     const uploadTask = uploadBytesResumable(storageRef, blb);
-
-//     uploadTask.on(
-//       'state_changed',
-//       (snapshot) => {
-//         // Monitor upload progress if needed
-//         console.log("Upload");
-//       },
-//       (error) => {
-//         console.error('Upload failed:', error);
-//       },
-//       () => {
-//         // Upload completed successfully, get the download URL
-//         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-//           // Store the image URL globally
-//           uploadedImageUrl = downloadURL;
-//           // Display the uploaded image (optional)
-//           uploadPhotoLabel.style.backgroundImage = 'url("' + downloadURL + '")';
-//           uploadPhotoLabel.classList.add("upload-active");
-
-//           if (uploadedImageUrl && upl) {
-//             imgUrl = uploadedImageUrl;
-//             // Update user profile with the stored image URL
-//             setDoc(doc(colRef, uid), {
-//               uid: uid,
-//               firstName: obj.firstName,
-//               lastName: obj.lastName,
-//               age: obj.age,
-//               gender: obj.gender,
-//               email: email.value,
-//               password: obj.createPassword,
-//               profilePicture: uploadedImageUrl, // Use the stored image URL
-//             }).then(() => {
-//               localStorage.setItem('user', JSON.stringify(obj));
-//               window.open('main_page.html', '_self');
-//             })
-//               .catch(function (err) {
-//                 console.log('Error: ' + err.message);
-//               });
-//           } else {
-//             // If no image URL is stored, proceed without uploading a profile picture
-//             setDoc(doc(colRef, uid), {
-//               uid: uid,
-//               firstName: obj.firstName,
-//               lastName: obj.lastName,
-//               age: obj.age,
-//               gender: obj.gender,
-//               createPassword: obj.createPassword,
-//               email: email.value,
-//               profilePicture: 'https://firebasestorage.googleapis.com/v0/b/polylingua-94f50.appspot.com/o/without-img.jpg?alt=media&token=fbd3f4d0-4275-4f19-b127-9950d87635e2'
-//             }).then(() => {
-//               localStorage.setItem('user', JSON.stringify(obj));
-//               window.open('main_page.html', '_self');
-//             })
-//               .catch(function (err) {
-//                 console.log('Error: ' + err.message);
-//               });
-//           }
-//         });
-//       }
-//     )
-
-
-
-//   });
-
-
-// };
-// Предполагаем, что auth, storage, colRef и т.д. уже определены в вашем коде
-
-// Выделение функции регистрации пользователя
 async function registerUser(obj) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, obj.email, obj.createPassword);
@@ -345,7 +234,7 @@ async function updateUserProfile(uid, obj, imgUrl) {
     profilePicture: imgUrl
   });
   localStorage.setItem('user', JSON.stringify(obj));
-  window.open('main_page.html', '_self');
+  window.open('index.html', '_self');
 }
 
 signUp.onclick = async function (event) {

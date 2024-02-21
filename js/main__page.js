@@ -102,7 +102,7 @@ toEmailModal.addEventListener('input', () => {
     }
 });
 toRegistrationPage.addEventListener('click', () => {
-    window.open('./index.html', '_self')
+    window.open('./registration_page.html', '_self')
 });
 singOut.addEventListener('click', () => {
     localStorage.setItem('user', '')

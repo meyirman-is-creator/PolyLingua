@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/media.css" />
+  </head>
+  <body>
+    <div id="body-container" class="body body-close">
+      <div class="cut">
+        <div class="cut__photo">
+          <div class="cut__container">
+            <div id="cancel-x" class="cancel">
+              <i class="fi fi-sr-cross-circle"></i>
+            </div>
+            <div class="cut__photo-title body__title">
+              <span>Browse image</span>
+            </div>
+            <div id="cut__photo-label" class="cut__photo-img">
+              <img
+                id="display_image_data"
+                class="display_image_data"
+                src="images/without-img.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="button_for_img">
+              <button id="crop" class="onPhoto">
+                <i class="fi fi-rs-tool-crop"></i>
+              </button>
+              <button id="move" class="onPhoto">
+                <i class="fi fi-rs-arrows"></i>
+              </button>
+            </div>
+
+            <label
+              id="upload__photo--label-cut"
+              for="for-uploadPhoto"
+              class="upload__photo-cut"
+            >
+              <i class="fi fi-rr-add-image"></i>
+              <span>Upload Photo</span>
+            </label>
+
+            <input
+              autocomplete="off"
+              id="for-uploadPhoto"
+              accept="image/jpeg, image/png, image/jpg"
+              placeholder="Upload Image"
+              type="file"
+              class="upload__photo-input"
+            />
+            <div class="save-cancel">
+              <button type="button" class="save__photo" id="save-photo">
+                Save
+              </button>
+              <button type="button" class="cancel__photo" id="cancel-photo">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="body__inner">
+        <div class="body__title">Create an account</div>
+
+        <form class="body__form">
+          <div class="upload__image">
+            <div class="upload__img-container">
+              <label id="upload__photo--label" class="upload__photo">
+                <i class="fi fi-rr-add-image"></i>
+              </label>
+              <div id="remove-photo" class="remove__photo">
+                <i class="fi fi-sr-cross-circle"></i>
+              </div>
+            </div>
+          </div>
+          <label class="first__name" for="firstName">
+            <i class="fi fi-rr-user"></i>
+            <input
+              autocomplete="off"
+              id="firstName"
+              placeholder="First Name"
+              type="text"
+              required
+            />
+          </label>
+          
+          <label for="lastName" class="last__name">
+            <i class="fi fi-rr-id-card-clip-alt"></i>
+            <input
+              autocomplete="off"
+              id="lastName"
+              placeholder="Last Name"
+              type="text" required
+            />
+          </label>
+          <label class="email" for="toEmail">
+            <i class="fi fi-rr-envelope"></i>
+            <input
+              autocomplete="off"
+              id="toEmail"
+              placeholder="Email"
+              type="text"
+              required
+            />
+          </label>
+          <label for="age" class="age">
+            <i class="fi fi-rr-circle-user"></i>
+            <input
+              autocomplete="off"
+              id="age"
+              placeholder="Age"
+              type="text"
+              required
+            />
+          </label>
+
+          <label for="createPassword" class="create__password">
+            <i class="fi fi-rr-lock"></i>
+            <input
+              autocomplete="off"
+              id="createPassword"
+              placeholder="Create Password"
+              type="password"
+              required
+            />
+          </label>
+          <label for="confirmPassword" class="confirm__password">
+            <i class="fi fi-sr-lock"></i>
+            <input
+              autocomplete="off"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              type="password"
+              required
+            />
+          </label>
+          <div class="gender-box">
+            <label id="" class="label">
+              <input
+                autocomplete="off"
+                class="gender male__input"
+                name="gender"
+                type="radio"
+                value="male"
+                checked
+              />
+              <span class="radio__fake male"></span>
+              <span class="radio__text">Male</span>
+            </label>
+            <label class="label">
+              <input
+                autocomplete="off"
+                class="gender female__input"
+                name="gender"
+                type="radio"
+                value="female"
+                checked
+              />
+              <span id="" class="radio__fake female"></span>
+              <span class="radio__text">Female</span>
+            </label>
+          </div>
+
+          <button type="submit" href="#" id="signUp" class="body__btn">
+            <i class="fi fi-rs-registration-paper"></i>
+            <span class="body__btn-span">Sign Up</span>
+          </button>
+        </form>
+        <button type="submit" id="toLogin" class="toLogin">I have account!</button>
+
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

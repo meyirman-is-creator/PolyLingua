@@ -64,11 +64,11 @@ uploadImgBtn.addEventListener("click", () => {
 });
 signOut.addEventListener('click',()=>{
   localStorage.setItem('user', '');
-  window.open('main_page.html','_self');
+  window.open('index.html','_self');
 });
 signOutIn.addEventListener('click',()=>{
   localStorage.setItem('user', '');
-  window.open('main_page.html','_self');
+  window.open('index.html','_self');
 });
 uploadPhotoInput.addEventListener('change', (e) => {
   const files = e.target.files;
@@ -168,5 +168,5 @@ savePhotoModal.addEventListener('click', function () {
   });
 });
 toCourse.addEventListener('click', () => {
-  window.open('./main_page.html', '_self')
+  window.open('./index.html', '_self')
 });
