@@ -12,6 +12,11 @@ body {
     background-color: #171730;
 }
 
+.fi-rr-envelope.active,
+.fi-rr-lock.active {
+    color: white !important;
+}
+
 .btn-outline-primary {
     --bs-btn-color: #8A8AC3;
     --bs-btn-border-color: #8A8AC3;
@@ -58,6 +63,10 @@ body {
     align-items: baseline;
 }
 
+.nav-item a:focus {
+    color: #8A8AC3;
+}
+
 .container-fluid a {
     color: #8A8AC3;
 
@@ -68,6 +77,10 @@ body {
     font-weight: 400;
     padding: 10px 8px 10px 25px !important;
 
+}
+
+.nav-link:disabled {
+    color: #8A8AC3 !important;
 }
 
 .navbar-brand {
@@ -123,6 +136,7 @@ body {
 }
 
 .syrtta {
+    position: relative;
     width: 90%;
     margin: 0 auto;
 }
@@ -176,6 +190,9 @@ body {
 }
 
 .user-btn {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -184,7 +201,9 @@ body {
     font-size: 15px;
     border: none;
 }
-
+.user-btn.delete .fi-sr-user{
+    display: none;
+}
 .user-btn i {
     line-height: 25px;
 }
@@ -225,16 +244,19 @@ body {
     color: white;
 
 }
-.sign-up-btn-modal:hover{
+
+.sign-up-btn-modal:hover {
     background: #7979ac;
 }
-.sign-in-btn-modal{
+
+.sign-in-btn-modal {
     background-color: #A922FD;
     color: white;
     width: 125px;
 
 }
-.sign-in-btn-modal:hover{
+
+.sign-in-btn-modal:hover {
     background-color: #7a1db4;
 
 }
@@ -260,6 +282,7 @@ label {
     position: relative;
     text-align: center;
 }
+
 .email .fi-rr-envelope,
 .create__password .fi-rr-lock {
     text-align: center;
@@ -286,10 +309,21 @@ label {
     padding: 0px 15px 0 50px;
     box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 7px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
+
 .password_input::placeholder,
-.email_input::placeholder{
+.email_input::placeholder {
     color: #8A8AC3;
 }
-.modal-header, .modal-footer{
+
+.modal-header,
+.modal-footer {
     border: none;
+}
+
+.btn.btn-outline-primary.syrtta.off {
+    display: none;
+}
+
+.btn.btn-outline-primary .syrtta.syrtta-login.off {
+    display: none;
 }

@@ -48,7 +48,7 @@
                   <input
                     class="email_input"
                     autocomplete="off"
-                    id="toEmail"
+                    id="toEmailModal"
                     placeholder="Email"
                     type="text"
                     required
@@ -59,7 +59,7 @@
                   <input
                     class="password_input"
                     autocomplete="off"
-                    id="createPassword"
+                    id="createPasswordModal"
                     placeholder="Password"
                     type="password"
                     required
@@ -68,7 +68,7 @@
               </div>
               <div class="modal-footer">
                 <button id="to-sign-up" type="button" class="btn  sign-up-btn-modal" data-bs-dismiss="modal">Sign Up</button>
-                <button id="to-sign-in" type="button" class="btn  sign-in-btn-modal">Sign In</button>
+                <button id="to-sign-in-modal" type="button" class="btn  sign-in-btn-modal">Sign In</button>
               </div>
             </div>
           </div>
@@ -114,10 +114,13 @@
                           <span>Course</span>
                         </a>
                       </li>
-                      <button
-                        type="button"
-                        class="btn btn-outline-primary ishinde"
-                      >
+                      
+                      <button id="open-login-in" type="button" class="btn btn-outline-primary ishinde ishinde-login">
+                        <span>Login</span>
+                        <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+                      </button>
+                      
+                      <button id="sign-out-in" type="button" class="btn btn-outline-primary ishinde off">
                         <i class="fi fi-rr-exit"></i>
                         <span>Sign out</span>
                       </button>
@@ -126,7 +129,12 @@
                 </div>
               </div>
             </nav>
-            <button type="button" class="btn btn-outline-primary syrtta">
+            <button id="open-login" type="button" class="btn btn-outline-primary syrtta syrtta-login">
+              <span>Login</span>
+              <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+            </button>
+            
+            <button id="sign-out" type="button" class="btn btn-outline-primary syrtta off">
               <i class="fi fi-rr-exit"></i>
               <span>Sign out</span>
             </button>
@@ -143,14 +151,10 @@
                 <i class="fi fi-rr-list"></i>
               </button>
               <div class="header__btns">
-                <button type="button" class="btn btn-primary user-btn">
+                <button type="button" id="user-btn-icon" class="btn btn-primary user-btn">
                   <i class="fi fi-sr-user"></i>
                 </button>
-                <button id="open-login" type="button" class="btn btn-outline-primary syrtta syrtta-login">
-                  <span>Login</span>
-                  <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
-
-                </button>
+                
               </div>
             </header>
             <div class="main-page__body"></div>
@@ -164,6 +168,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="js/main__page.js"></script>
+    <script type="module"  src="js/main__page.js"></script>
   </body>
 </html>

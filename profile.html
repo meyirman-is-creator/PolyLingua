@@ -104,7 +104,7 @@
                         <span>Course</span>
                       </a>
                     </li>
-                    <button type="button" class="btn btn-outline-primary ishinde">
+                    <button id="sign-out-in" type="button" class="btn btn-outline-primary ishinde">
                       <i class="fi fi-rr-exit"></i>
                       <span>Sign out</span>
                     </button>
@@ -113,7 +113,7 @@
               </div>
             </div>
           </nav>
-          <button type="button" class="btn btn-outline-primary syrtta">
+          <button id="sign-out" type="button" class="btn btn-outline-primary syrtta">
             <i class="fi fi-rr-exit"></i>
             <span>Sign out</span>
           </button>
@@ -125,7 +125,7 @@
               <i class="fi fi-rr-list"></i>
             </button>
             <div class="header__btns">
-              <button type="button" class="btn btn-primary user-btn">
+              <button type="button" id="user-btn-icon" class="btn btn-primary user-btn ">
                 <i class="fi fi-sr-user"></i>
               </button>
             </div>
@@ -157,7 +157,7 @@
                       <input autocomplete="off" id="age" placeholder="Age" type="text" required />
                     </label>
   
-                    <label for="createPassword" class="create__password">
+                    <!-- <label for="createPassword" class="create__password">
                       <i class="fi fi-rr-lock"></i>
                       <input autocomplete="off" id="createPassword" placeholder="Create Password" type="password"
                         required />
@@ -166,9 +166,9 @@
                       <i class="fi fi-sr-lock"></i>
                       <input autocomplete="off" id="confirmPassword" placeholder="Confirm Password" type="password"
                         required />
-                    </label>
+                    </label> -->
   
-                    <div class="language-container">
+                    <!-- <div class="language-container">
                       <i class="fi fi-rr-language"></i>
                       <select class="language__select" id="languages" name="language">
                         <option value="Russian">Russian</option>
@@ -176,7 +176,7 @@
                         <option value="Kazakh">Kazakh</option>
                         <option value="Turkish">Turkish</option>
                       </select>
-                    </div>
+                    </div> -->
                     <div class="gender-box">
                       <label class="label gender-male">
                         <input autocomplete="off" class="gender male__input" name="gender" type="radio" value="male"
@@ -187,7 +187,7 @@
                       <label class="label gender-female">
                         <input autocomplete="off" class="gender female__input" name="gender" type="radio" value="female"
                           checked />
-                        <span id="" class="radio__fake female"></span>
+                        <span class="radio__fake female"></span>
                         <span class="radio__text">Female</span>
                       </label>
                     </div>
@@ -211,7 +211,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 
-  <script src="js/profile.js"></script>
+  <script type="module" src="js/profile.js"></script>
 </body>
 
 </html>

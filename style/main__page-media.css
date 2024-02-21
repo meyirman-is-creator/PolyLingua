@@ -1,32 +1,50 @@
-@media (max-width: 991px){
-    .syrtta{
+@media (max-width: 991px) {
+    .syrtta {
         display: none;
 
     }
-    .ishinde{
+
+    .ishinde-login {
+        position: relative;
+    }
+
+    .ishinde {
         display: block;
     }
-    .navbar-brand__syrtta{
+
+    .navbar-brand__syrtta {
         display: none;
     }
+
     .header__btns {
         display: flex;
         padding: 3px 6px;
         margin: 0;
     }
-    .syrtta-login{
-        margin: 0 0 0 15px !important;
-        display: block;
-    }
+
     .main-page__header {
         height: 50px;
     }
+
     .user-btn {
         width: 35px;
         height: 35px;
         font-size: 10px;
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
         display: block;
+    }
+
+    .btn.btn-outline-primary.ishinde.off {
+        display: none;
+    }
+    .btn.btn-outline-primary.ishinde.ishinde-login.off{
+        display: none;
+    }
+}
+@media(max-width: 380px){
+    .email .fi-rr-envelope, .create__password .fi-rr-lock {
+        left: 35px;
     }
 }
