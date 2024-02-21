@@ -9,6 +9,15 @@
     .navbar-brand__syrtta{
         display: none;
     }
+    .header__btns {
+        display: flex;
+        padding: 3px 6px;
+        margin: 0;
+    }
+    .syrtta-login{
+        margin: 0 0 0 15px !important;
+        display: block;
+    }
     .main-page__header {
         height: 50px;
     }

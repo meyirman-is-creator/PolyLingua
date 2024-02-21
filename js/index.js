@@ -1,4 +1,3 @@
-//check
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getAuth,
@@ -11,6 +10,7 @@ import {
   getFirestore,
   collection,
   getDocs,
+  setDoc,
   addDoc,
   doc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -35,11 +35,13 @@ const firebaseConfig = {
 let move = document.getElementById("move");
 let crop = document.getElementById("crop");
 let cropper;
-let toLogin = document.getElementById('toLogin')
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
+let email = document.getElementById('toEmail');
+let emailIcon = email.previousElementSibling;
 let firstName = document.getElementById("firstName");
 let lastName = document.getElementById("lastName");
 let age = document.getElementById("age");
@@ -65,8 +67,7 @@ let result = document.getElementById("cropped_image_result");
 let cutPhotoLabel = document.querySelector("#cut__photo-label");
 let removePhoto = document.getElementById("remove-photo");
 let selectBox = document.getElementById('languages');
-let toEmail = document.getElementById('toEmail');
-let emailIcon = toEmail.previousElementSibling;
+let icon = selectBox.nextSibling; 
 removePhoto.onclick = function(){
   uploadPhotoLabel.style.backgroundImage = '';
   uploadPhotoLabel.classList.remove("upload-active");
@@ -77,9 +78,7 @@ removePhoto.onclick = function(){
 };
 // https://firebasestorage.googleapis.com/v0/b/polylingua-94f50.appspot.com/o/WhatsApp%20Image%202024-01-11%20at%2011.06.09.jpeg?alt=media&token=2aa98361-69de-4224-896a-90cc0951b813
 let uploadedImageUrl = null;
-toLogin.addEventListener('click',()=>{
-  window.open('main_page.html','_self')
-});
+let upl = false;
 uploadPhoto.addEventListener("change", function (e) {
   
   const files = e.target.files;
@@ -100,7 +99,6 @@ uploadPhoto.addEventListener("change", function (e) {
         zoomOnWheel: true,
       });
       savePhoto.style.display = "inline-block";
-      
     };
     reader.readAsDataURL(files[0]);
   }
@@ -118,6 +116,7 @@ savePhoto.addEventListener('click', function () {
     var croppedImageURL = URL.createObjectURL(blob);
     uploadPhotoLabel.style.backgroundImage = 'url("' + croppedImageURL + '")';
     uploadPhotoLabel.classList.add("upload-active");
+    upl = true;
   });
 });
 
@@ -139,7 +138,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 uploadPhotoLabel.onclick = function () {
-  
+  let radios = document.getElementsByName("gender");
+  for (var radio of radios) {
+    if (radio.checked) {
+      console.log(radio.value);
+    }
+  }
   body.classList.add("body-cut");
   body.classList.remove("body-close");
 };
@@ -174,13 +178,7 @@ age.addEventListener("input", function () {
     ageIcon.classList.remove("active");
   }
 });
-toEmail.addEventListener('input', ()=>{
-  if (toEmail.value !== "") {
-    emailIcon.classList.add("active");
-  } else {
-    emailIcon.classList.remove("active");
-  }
-});
+
 createPassword.addEventListener("input", function () {
   if (createPassword.value !== "") {
     createPasswordIcon.classList.add("active");
@@ -195,8 +193,22 @@ confirmPassword.addEventListener("input", function () {
     confirmPasswordIcon.classList.remove("active");
   }
 });
-let email = "12345678@gmail.com";
+email.addEventListener('input', ()=>{
+  if (email.value !== "") {
+    emailIcon.classList.add("active");
+  } else {
+    emailIcon.classList.remove("active");
+  }
+});
 // let obj = null;
+// setDoc(doc(colRef,'user2'),{bam:'not lol'}).then(() => {
+//   console.log('User added');
+//   alert('Signup Successfully');
+// })
+// .catch(function (err) {
+//   console.log('Error: ' + err.message);
+// });
+let imgUrl='';
 signUp.onclick = function () {
   event.preventDefault();
   let language1;
@@ -206,16 +218,21 @@ signUp.onclick = function () {
       language1=radio.value;
     }
   }
-  const obj = {
+  let obj = {
     firstName: firstName.value,
     lastName: lastName.value,
     age: age.value,
     language: language1,
+    email:email.value,
     createPassword: createPassword.value,
-    confirmPassword: confirmPassword.value,
+    confirmPassword: confirmPassword.value
   };
   console.log(obj);
-  createUserWithEmailAndPassword(auth, email, obj.createPassword)
+  if (obj.createPassword !== obj.confirmPassword) {
+    alert('Passwords do not match. Please try again.');
+    return; // Exit the function if passwords don't match
+  }
+  createUserWithEmailAndPassword(auth, email.value, obj.createPassword)
     .then(function (success) {
       // Check if an image URL has been stored
       alert("Signup Successfully");
@@ -231,8 +248,9 @@ signUp.onclick = function () {
       }
       const uid = user.uid;
       console.log(uid);
-      const storageRef = ref(storage,'profile_pictures/${uid}');
+      const storageRef = ref(storage,'profile_pictures/'+uid);
       const uploadTask = uploadBytesResumable(storageRef, blb);
+    
           uploadTask.on(
             'state_changed',
             (snapshot) => {
@@ -251,48 +269,60 @@ signUp.onclick = function () {
                 // Display the uploaded image (optional)
                 uploadPhotoLabel.style.backgroundImage = 'url("' + downloadURL + '")';
                 uploadPhotoLabel.classList.add("upload-active");
+
+                if (uploadedImageUrl && upl) {
+                  imgUrl=uploadedImageUrl;
+                  // Update user profile with the stored image URL
+                  setDoc(doc(colRef,uid),{
+                    uid : uid,
+                    firstName: obj.firstName,
+                    lastName: obj.lastName,
+                    age: obj.age,
+                    language: obj.language,
+                    email: email.value,
+                    password: obj.createPassword,
+                    profilePicture: uploadedImageUrl, // Use the stored image URL
+                  }).then(() => {
+                    localStorage.setItem('user',JSON.stringify(obj));
+                    window.open('main_page.html','_self');
+                  })
+                  .catch(function (err) {
+                    console.log('Error: ' + err.message);
+                  });
+                } else {
+                  imgUrl='https://firebasestorage.googleapis.com/v0/b/polylingua-94f50.appspot.com/o/without-img.jpg?alt=media&token=fbd3f4d0-4275-4f19-b127-9950d87635e2';
+                  // If no image URL is stored, proceed without uploading a profile picture
+                  console.log('no prof pic')
+                  setDoc(doc(colRef,uid), {
+                    uid : uid,
+                    firstName: obj.firstName,
+                    lastName: obj.lastName,
+                    age: obj.age,
+                    language: obj.language,
+                    createPassword: obj.createPassword,
+                    email: email.value,
+                    profilePicture: 'https://firebasestorage.googleapis.com/v0/b/polylingua-94f50.appspot.com/o/without-img.jpg?alt=media&token=fbd3f4d0-4275-4f19-b127-9950d87635e2'
+                  }).then(() => {
+                    localStorage.setItem('user',JSON.stringify(obj));
+                    window.open('main_page.html','_self');
+                  })
+                  .catch(function (err) {
+                    console.log('Error: ' + err.message);
+                  });
+                }
               });
             }
-          );
-        if (uploadedImageUrl) {
-          // Update user profile with the stored image URL
-          addDoc(doc(colRef,uid),{
-            uid : uid,
-            firstName: obj.firstName,
-            lastName: obj.lastName,
-            age: obj.age,
-            language: obj.language,
-            email: email,
-            profilePicture: uploadedImageUrl, // Use the stored image URL
-          }).then(() => {
-            console.log('User profile updated');
-            alert('Signup Successfully');
-          })
-          .catch(function (err) {
-            console.log('Error: ' + err.message);
-          });
-        } else {
-          // If no image URL is stored, proceed without uploading a profile picture
-          addDoc(doc(colRef,uid), {
-            uid : uid,
-            firstName: obj.firstName,
-            lastName: obj.lastName,
-            age: obj.age,
-            language: obj.language,
-            createPassword: obj.createPassword,
-            email: email,
-          }).then(() => {
-            console.log('User added');
-            alert('Signup Successfully');
-          })
-          .catch(function (err) {
-            console.log('Error: ' + err.message);
-          });
-        }
+          )
+            
+          
+
       console.log(user.uid);
     });
+
     
 };
+
+
 onAuthStateChanged(auth, (user) => {
   if (user == null) {
     return;
@@ -300,6 +330,3 @@ onAuthStateChanged(auth, (user) => {
   const uid = user.uid;
   console.log(uid);
 });
-
-
-
