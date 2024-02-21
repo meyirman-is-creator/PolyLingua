@@ -1,0 +1,1258 @@
+{
+    "TTSpeech" :{
+        "Afrikaans (South Africa)F": {
+            "languageCode": "af-ZA",
+            "name": "af-ZA-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "ArabicF": {
+            "languageCode": "ar-XA",
+            "name": "ar-XA-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "ArabicM": {
+            "languageCode": "ar-XA",
+            "name": "ar-XA-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Basque (Spain)F": {
+            "languageCode": "eu-ES",
+            "name": "eu-ES-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Bengali (India)F": {
+            "languageCode": "bn-IN",
+            "name": "bn-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Bengali (India)M": {
+            "languageCode": "bn-IN",
+            "name": "bn-IN-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Bulgarian (Bulgaria)F": {
+            "languageCode": "bg-BG",
+            "name": "bg-BG-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Catalan (Spain)F": {
+            "languageCode": "ca-ES",
+            "name": "ca-ES-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Czech (Czech Republic)F": {
+            "languageCode": "cs-CZ",
+            "name": "cs-CZ-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Danish (Denmark)F": {
+            "languageCode": "da-DK",
+            "name": "da-DK-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "Danish (Denmark)M": {
+            "languageCode": "da-DK",
+            "name": "da-DK-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Dutch (Belgium)F": {
+            "languageCode": "nl-BE",
+            "name": "nl-BE-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Dutch (Belgium)M": {
+            "languageCode": "nl-BE",
+            "name": "nl-BE-Wavenet-B",
+            "ssmlGender": "MALE"
+        },
+        "Dutch (Netherlands)F": {
+            "languageCode": "nl-NL",
+            "name": "nl-NL-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "Dutch (Netherlands)M": {
+            "languageCode": "nl-NL",
+            "name": "nl-NL-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "English (Australia)F": {
+            "languageCode": "en-AU",
+            "name": "en-AU-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "English (Australia)M": {
+            "languageCode": "en-AU",
+            "name": "en-AU-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "English (India)F": {
+            "languageCode": "en-IN",
+            "name": "en-IN-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "English (India)M": {
+            "languageCode": "en-IN",
+            "name": "en-IN-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "English (UK)F": {
+            "languageCode": "en-GB",
+            "name": "en-GB-Wavenet-F",
+            "ssmlGender": "FEMALE"
+        },
+        "English (UK)M": {
+            "languageCode": "en-GB",
+            "name": "en-GB-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "English (US)F": {
+            "languageCode": "en-US",
+            "name": "en-US-Wavenet-H",
+            "ssmlGender": "FEMALE"
+        },
+        "English (US)M": {
+            "languageCode": "en-US",
+            "name": "en-US-Wavenet-J",
+            "ssmlGender": "MALE"
+        },
+        "Finnish (Finland)F": {
+            "languageCode": "fi-FI",
+            "name": "fi-FI-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "French (Canada)F": {
+            "languageCode": "fr-CA",
+            "name": "fr-CA-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "French (Canada)M": {
+            "languageCode": "fr-CA",
+            "name": "fr-CA-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "French (France)F": {
+            "languageCode": "fr-FR",
+            "name": "fr-FR-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "French (France)M": {
+            "languageCode": "fr-FR",
+            "name": "fr-FR-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Galician (Spain)F": {
+            "languageCode": "gl-ES",
+            "name": "gl-ES-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "German (Germany)F": {
+            "languageCode": "de-DE",
+            "name": "de-DE-Wavenet-F",
+            "ssmlGender": "FEMALE"
+        },
+        "German (Germany)M": {
+            "languageCode": "de-DE",
+            "name": "de-DE-Wavenet-E",
+            "ssmlGender": "MALE"
+        },
+        "Greek (Greece)F": {
+            "languageCode": "el-GR",
+            "name": "el-GR-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Gujarati (India)F": {
+            "languageCode": "gu-IN",
+            "name": "gu-IN-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Gujarati (India)M": {
+            "languageCode": "gu-IN",
+            "name": "gu-IN-Wavenet-B",
+            "ssmlGender": "MALE"
+        },
+        "Hebrew (Israel)F": {
+            "languageCode": "he-IL",
+            "name": "he-IL-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Hebrew (Israel)M": {
+            "languageCode": "he-IL",
+            "name": "he-IL-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Hindi (India)F": {
+            "languageCode": "hi-IN",
+            "name": "hi-IN-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "Hindi (India)M": {
+            "languageCode": "hi-IN",
+            "name": "hi-IN-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Hungarian (Hungary)F": {
+            "languageCode": "hu-HU",
+            "name": "hu-HU-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Icelandic (Iceland)F": {
+            "languageCode": "is-IS",
+            "name": "is-IS-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Indonesian (Indonesia)F": {
+            "languageCode": "id-ID",
+            "name": "id-ID-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "Indonesian (Indonesia)M": {
+            "languageCode": "id-ID",
+            "name": "id-ID-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Italian (Italy)F": {
+            "languageCode": "it-IT",
+            "name": "it-IT-Wavenet-B",
+            "ssmlGender": "FEMALE"
+        },
+        "Italian (Italy)M": {
+            "languageCode": "it-IT",
+            "name": "it-IT-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Japanese (Japan)F": {
+            "languageCode": "ja-JP",
+            "name": "ja-JP-Wavenet-B",
+            "ssmlGender": "FEMALE"
+        },
+        "Japanese (Japan)M": {
+            "languageCode": "ja-JP",
+            "name": "ja-JP-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Kannada (India)F": {
+            "languageCode": "kn-IN",
+            "name": "kn-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Kannada (India)M": {
+            "languageCode": "kn-IN",
+            "name": "kn-IN-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Korean (South Korea)F": {
+            "languageCode": "ko-KR",
+            "name": "ko-KR-Wavenet-B",
+            "ssmlGender": "FEMALE"
+        },
+        "Korean (South Korea)M": {
+            "languageCode": "ko-KR",
+            "name": "ko-KR-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Latvian (Latvia)M": {
+            "languageCode": "lv-LV",
+            "name": "lv-LV-Standard-A",
+            "ssmlGender": "MALE"
+        },
+        "Lithuanian (Lithuania)M": {
+            "languageCode": "lt-LT",
+            "name": "lt-LT-Standard-A",
+            "ssmlGender": "MALE"
+        },
+        "Malay (Malaysia)F": {
+            "languageCode": "ms-MY",
+            "name": "ms-MY-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Malay (Malaysia)M": {
+            "languageCode": "ms-MY",
+            "name": "ms-MY-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Malayalam (India)F": {
+            "languageCode": "ml-IN",
+            "name": "ml-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Malayalam (India)M": {
+            "languageCode": "ml-IN",
+            "name": "ml-IN-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Marathi (India)F": {
+            "languageCode": "mr-IN",
+            "name": "mr-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Marathi (India)M": {
+            "languageCode": "mr-IN",
+            "name": "mr-IN-Wavenet-B",
+            "ssmlGender": "MALE"
+        },
+        "Norwegian (Norway)F": {
+            "languageCode": "nb-NO",
+            "name": "nb-NO-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "Norwegian (Norway)M": {
+            "languageCode": "nb-NO",
+            "name": "nb-NO-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Polish (Poland)F": {
+            "languageCode": "pl-PL",
+            "name": "pl-PL-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "Polish (Poland)M": {
+            "languageCode": "pl-PL",
+            "name": "pl-PL-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Punjabi (India)F": {
+            "languageCode": "pa-IN",
+            "name": "pa-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Punjabi (India)M": {
+            "languageCode": "pa-IN",
+            "name": "pa-IN-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Romanian (Romania)F": {
+            "languageCode": "ro-RO",
+            "name": "ro-RO-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Russian (Russia)F": {
+            "languageCode": "ru-RU",
+            "name": "ru-RU-Wavenet-E",
+            "ssmlGender": "FEMALE"
+        },
+        "Russian (Russia)M": {
+            "languageCode": "ru-RU",
+            "name": "ru-RU-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Serbian (Cyrillic)F": {
+            "languageCode": "sr-RS",
+            "name": "sr-RS-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Slovak (Slovakia)F": {
+            "languageCode": "sk-SK",
+            "name": "sk-SK-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Spanish (Spain)F": {
+            "languageCode": "es-ES",
+            "name": "es-ES-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "Spanish (Spain)M": {
+            "languageCode": "es-ES",
+            "name": "es-ES-Wavenet-B",
+            "ssmlGender": "MALE"
+        },
+        "Spanish (US)F": {
+            "languageCode": "es-US",
+            "name": "es-US-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Spanish (US)M": {
+            "languageCode": "es-US",
+            "name": "es-US-Wavenet-C",
+            "ssmlGender": "MALE"
+        },
+        "Swedish (Sweden)F": {
+            "languageCode": "sv-SE",
+            "name": "sv-SE-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "Swedish (Sweden)M": {
+            "languageCode": "sv-SE",
+            "name": "sv-SE-Wavenet-E",
+            "ssmlGender": "MALE"
+        },
+        "Tamil (India)F": {
+            "languageCode": "ta-IN",
+            "name": "ta-IN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Tamil (India)M": {
+            "languageCode": "ta-IN",
+            "name": "ta-IN-Wavenet-D",
+            "ssmlGender": "MALE"
+        },
+        "Telugu (India)F": {
+            "languageCode": "te-IN",
+            "name": "te-IN-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Telugu (India)M": {
+            "languageCode": "te-IN",
+            "name": "te-IN-Standard-B",
+            "ssmlGender": "MALE"
+        },
+        "Thai (Thailand)F": {
+            "languageCode": "th-TH",
+            "name": "th-TH-Standard-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Turkish (Turkey)F": {
+            "languageCode": "tr-TR",
+            "name": "tr-TR-Wavenet-D",
+            "ssmlGender": "FEMALE"
+        },
+        "Turkish (Turkey)M": {
+            "languageCode": "tr-TR",
+            "name": "tr-TR-Wavenet-E",
+            "ssmlGender": "MALE"
+        },
+        "Ukrainian (Ukraine)F": {
+            "languageCode": "uk-UA",
+            "name": "uk-UA-Wavenet-A",
+            "ssmlGender": "FEMALE"
+        },
+        "Vietnamese (Vietnam)F": {
+            "languageCode": "vi-VN",
+            "name": "vi-VN-Wavenet-C",
+            "ssmlGender": "FEMALE"
+        },
+        "Vietnamese (Vietnam)M": {
+            "languageCode": "vi-VN",
+            "name": "vi-VN-Wavenet-D",
+            "ssmlGender": "MALE"
+        }
+    },
+    "translate":{
+        "Afrikaans": {
+            "languageCode": "af"
+        },
+        "Albanian": {
+            "languageCode": "sq"
+        },
+        "Amharic": {
+            "languageCode": "am"
+        },
+        "Arabic": {
+            "languageCode": "ar"
+        },
+        "Armenian": {
+            "languageCode": "hy"
+        },
+        "Assamese": {
+            "languageCode": "as"
+        },
+        "Aymara": {
+            "languageCode": "ay"
+        },
+        "Azerbaijani": {
+            "languageCode": "az"
+        },
+        "Bambara": {
+            "languageCode": "bm"
+        },
+        "Basque": {
+            "languageCode": "eu"
+        },
+        "Belarusian": {
+            "languageCode": "be"
+        },
+        "Bengali": {
+            "languageCode": "bn"
+        },
+        "Bhojpuri": {
+            "languageCode": "bho"
+        },
+        "Bosnian": {
+            "languageCode": "bs"
+        },
+        "Bulgarian": {
+            "languageCode": "bg"
+        },
+        "Catalan": {
+            "languageCode": "ca"
+        },
+        "Cebuano": {
+            "languageCode": "ceb"
+        },
+        "Chinese (Simplified)": {
+            "languageCode": "zh"
+        },
+        "Chinese (Traditional)": {
+            "languageCode": "zh"
+        },
+        "Corsican": {
+            "languageCode": "co"
+        },
+        "Croatian": {
+            "languageCode": "hr"
+        },
+        "Czech": {
+            "languageCode": "cs"
+        },
+        "Danish": {
+            "languageCode": "da"
+        },
+        "Dhivehi": {
+            "languageCode": "dv"
+        },
+        "Dogri": {
+            "languageCode": "doi"
+        },
+        "Dutch": {
+            "languageCode": "nl"
+        },
+        "English": {
+            "languageCode": "en"
+        },
+        "Esperanto": {
+            "languageCode": "eo"
+        },
+        "Estonian": {
+            "languageCode": "et"
+        },
+        "Ewe": {
+            "languageCode": "ee"
+        },
+        "Filipino (Tagalog)": {
+            "languageCode": "fil"
+        },
+        "Finnish": {
+            "languageCode": "fi"
+        },
+        "French": {
+            "languageCode": "fr"
+        },
+        "Frisian": {
+            "languageCode": "fy"
+        },
+        "Galician": {
+            "languageCode": "gl"
+        },
+        "Georgian": {
+            "languageCode": "ka"
+        },
+        "German": {
+            "languageCode": "de"
+        },
+        "Greek": {
+            "languageCode": "el"
+        },
+        "Guarani": {
+            "languageCode": "gn"
+        },
+        "Gujarati": {
+            "languageCode": "gu"
+        },
+        "Haitian Creole": {
+            "languageCode": "ht"
+        },
+        "Hausa": {
+            "languageCode": "ha"
+        },
+        "Hawaiian": {
+            "languageCode": "haw"
+        },
+        "Hebrew": {
+            "languageCode": "he or iw"
+        },
+        "Hindi": {
+            "languageCode": "hi"
+        },
+        "Hmong": {
+            "languageCode": "hmn"
+        },
+        "Hungarian": {
+            "languageCode": "hu"
+        },
+        "Icelandic": {
+            "languageCode": "is"
+        },
+        "Igbo": {
+            "languageCode": "ig"
+        },
+        "Ilocano": {
+            "languageCode": "ilo"
+        },
+        "Indonesian": {
+            "languageCode": "id"
+        },
+        "Irish": {
+            "languageCode": "ga"
+        },
+        "Italian": {
+            "languageCode": "it"
+        },
+        "Japanese": {
+            "languageCode": "ja"
+        },
+        "Javanese": {
+            "languageCode": "jv"
+        },
+        "Kannada": {
+            "languageCode": "kn"
+        },
+        "Kazakh": {
+            "languageCode": "kk"
+        },
+        "Khmer": {
+            "languageCode": "km"
+        },
+        "Kinyarwanda": {
+            "languageCode": "rw"
+        },
+        "Konkani": {
+            "languageCode": "gom"
+        },
+        "Korean": {
+            "languageCode": "ko"
+        },
+        "Krio": {
+            "languageCode": "kri"
+        },
+        "Kurdish": {
+            "languageCode": "ku"
+        },
+        "Kurdish (Sorani)": {
+            "languageCode": "ckb"
+        },
+        "Kyrgyz": {
+            "languageCode": "ky"
+        },
+        "Lao": {
+            "languageCode": "lo"
+        },
+        "Latin": {
+            "languageCode": "la"
+        },
+        "Latvian": {
+            "languageCode": "lv"
+        },
+        "Lingala": {
+            "languageCode": "ln"
+        },
+        "Lithuanian": {
+            "languageCode": "lt"
+        },
+        "Luganda": {
+            "languageCode": "lg"
+        },
+        "Luxembourgish": {
+            "languageCode": "lb"
+        },
+        "Macedonian": {
+            "languageCode": "mk"
+        },
+        "Maithili": {
+            "languageCode": "mai"
+        },
+        "Malagasy": {
+            "languageCode": "mg"
+        },
+        "Malay": {
+            "languageCode": "ms"
+        },
+        "Malayalam": {
+            "languageCode": "ml"
+        },
+        "Maltese": {
+            "languageCode": "mt"
+        },
+        "Maori": {
+            "languageCode": "mi"
+        },
+        "Marathi": {
+            "languageCode": "mr"
+        },
+        "Meiteilon (Manipuri)": {
+            "languageCode": "mni-Mtei"
+        },
+        "Mizo": {
+            "languageCode": "lus"
+        },
+        "Mongolian": {
+            "languageCode": "mn"
+        },
+        "Myanmar (Burmese)": {
+            "languageCode": "my"
+        },
+        "Nepali": {
+            "languageCode": "ne"
+        },
+        "Norwegian": {
+            "languageCode": "no"
+        },
+        "Nyanja (Chichewa)": {
+            "languageCode": "ny"
+        },
+        "Odia (Oriya)": {
+            "languageCode": "or"
+        },
+        "Oromo": {
+            "languageCode": "om"
+        },
+        "Pashto": {
+            "languageCode": "ps"
+        },
+        "Persian": {
+            "languageCode": "fa"
+        },
+        "Polish": {
+            "languageCode": "pl"
+        },
+        "Portuguese (Portugal, Brazil)": {
+            "languageCode": "pt"
+        },
+        "Punjabi": {
+            "languageCode": "pa"
+        },
+        "Quechua": {
+            "languageCode": "qu"
+        },
+        "Romanian": {
+            "languageCode": "ro"
+        },
+        "Russian": {
+            "languageCode": "ru"
+        },
+        "Samoan": {
+            "languageCode": "sm"
+        },
+        "Sanskrit": {
+            "languageCode": "sa"
+        },
+        "Scots Gaelic": {
+            "languageCode": "gd"
+        },
+        "Sepedi": {
+            "languageCode": "nso"
+        },
+        "Serbian": {
+            "languageCode": "sr"
+        },
+        "Sesotho": {
+            "languageCode": "st"
+        },
+        "Shona": {
+            "languageCode": "sn"
+        },
+        "Sindhi": {
+            "languageCode": "sd"
+        },
+        "Sinhala (Sinhalese)": {
+            "languageCode": "si"
+        },
+        "Slovak": {
+            "languageCode": "sk"
+        },
+        "Slovenian": {
+            "languageCode": "sl"
+        },
+        "Somali": {
+            "languageCode": "so"
+        },
+        "Spanish": {
+            "languageCode": "es"
+        },
+        "Sundanese": {
+            "languageCode": "su"
+        },
+        "Swahili": {
+            "languageCode": "sw"
+        },
+        "Swedish": {
+            "languageCode": "sv"
+        },
+        "Tagalog (Filipino)": {
+            "languageCode": "tl"
+        },
+        "Tajik": {
+            "languageCode": "tg"
+        },
+        "Tamil": {
+            "languageCode": "ta"
+        },
+        "Tatar": {
+            "languageCode": "tt"
+        },
+        "Telugu": {
+            "languageCode": "te"
+        },
+        "Thai": {
+            "languageCode": "th"
+        },
+        "Tigrinya": {
+            "languageCode": "ti"
+        },
+        "Tsonga": {
+            "languageCode": "ts"
+        },
+        "Turkish": {
+            "languageCode": "tr"
+        },
+        "Turkmen": {
+            "languageCode": "tk"
+        },
+        "Twi (Akan)": {
+            "languageCode": "ak"
+        },
+        "Ukrainian": {
+            "languageCode": "uk"
+        },
+        "Urdu": {
+            "languageCode": "ur"
+        },
+        "Uyghur": {
+            "languageCode": "ug"
+        },
+        "Uzbek": {
+            "languageCode": "uz"
+        },
+        "Vietnamese": {
+            "languageCode": "vi"
+        },
+        "Welsh": {
+            "languageCode": "cy"
+        },
+        "Xhosa": {
+            "languageCode": "xh"
+        },
+        "Yiddish": {
+            "languageCode": "yi"
+        },
+        "Yoruba": {
+            "languageCode": "yo"
+        },
+        "Zulu": {
+            "languageCode": "zu"
+        }
+    },
+    "STText":{
+        "Afrikaans (South Africa)": {
+            "languageCode": "af-ZA"
+        },
+        "Albanian (Albania)": {
+            "languageCode": "sq-AL"
+        },
+        "Amharic (Ethiopia)": {
+            "languageCode": "am-ET"
+        },
+        "Arabic (Algeria)": {
+            "languageCode": "ar-DZ"
+        },
+        "Arabic (Bahrain)": {
+            "languageCode": "ar-BH"
+        },
+        "Arabic (Egypt)": {
+            "languageCode": "ar-EG"
+        },
+        "Arabic (Iraq)": {
+            "languageCode": "ar-IQ"
+        },
+        "Arabic (Israel)": {
+            "languageCode": "ar-IL"
+        },
+        "Arabic (Jordan)": {
+            "languageCode": "ar-JO"
+        },
+        "Arabic (Kuwait)": {
+            "languageCode": "ar-KW"
+        },
+        "Arabic (Lebanon)": {
+            "languageCode": "ar-LB"
+        },
+        "Arabic (Mauritania)": {
+            "languageCode": "ar-MR"
+        },
+        "Arabic (Morocco)": {
+            "languageCode": "ar-MA"
+        },
+        "Arabic (Oman)": {
+            "languageCode": "ar-OM"
+        },
+        "Arabic (Qatar)": {
+            "languageCode": "ar-QA"
+        },
+        "Arabic (Saudi Arabia)": {
+            "languageCode": "ar-SA"
+        },
+        "Arabic (State of Palestine)": {
+            "languageCode": "ar-PS"
+        },
+        "Arabic (Syria)": {
+            "languageCode": "ar-SY"
+        },
+        "Arabic (Tunisia)": {
+            "languageCode": "ar-TN"
+        },
+        "Arabic (United Arab Emirates)": {
+            "languageCode": "ar-AE"
+        },
+        "Arabic (Yemen)": {
+            "languageCode": "ar-YE"
+        },
+        "Armenian (Armenia)": {
+            "languageCode": "hy-AM"
+        },
+        "Azerbaijani (Azerbaijan)": {
+            "languageCode": "az-AZ"
+        },
+        "Basque (Spain)": {
+            "languageCode": "eu-ES"
+        },
+        "Bengali (Bangladesh)": {
+            "languageCode": "bn-BD"
+        },
+        "Bengali (India)": {
+            "languageCode": "bn-IN"
+        },
+        "Bosnian (Bosnia and Herzegovina)": {
+            "languageCode": "bs-BA"
+        },
+        "Bulgarian (Bulgaria)": {
+            "languageCode": "bg-BG"
+        },
+        "Catalan (Spain)": {
+            "languageCode": "ca-ES"
+        },
+        "Croatian (Croatia)": {
+            "languageCode": "hr-HR"
+        },
+        "Czech (Czech Republic)": {
+            "languageCode": "cs-CZ"
+        },
+        "Danish (Denmark)": {
+            "languageCode": "da-DK"
+        },
+        "Dutch (Belgium)": {
+            "languageCode": "nl-BE"
+        },
+        "Dutch (Netherlands)": {
+            "languageCode": "nl-NL"
+        },
+        "English (Australia)": {
+            "languageCode": "en-AU"
+        },
+        "English (Canada)": {
+            "languageCode": "en-CA"
+        },
+        "English (Ghana)": {
+            "languageCode": "en-GH"
+        },
+        "English (Hong Kong)": {
+            "languageCode": "en-HK"
+        },
+        "English (India)": {
+            "languageCode": "en-IN"
+        },
+        "English (Ireland)": {
+            "languageCode": "en-IE"
+        },
+        "English (Kenya)": {
+            "languageCode": "en-KE"
+        },
+        "English (New Zealand)": {
+            "languageCode": "en-NZ"
+        },
+        "English (Nigeria)": {
+            "languageCode": "en-NG"
+        },
+        "English (Pakistan)": {
+            "languageCode": "en-PK"
+        },
+        "English (Philippines)": {
+            "languageCode": "en-PH"
+        },
+        "English (Singapore)": {
+            "languageCode": "en-SG"
+        },
+        "English (South Africa)": {
+            "languageCode": "en-ZA"
+        },
+        "English (Tanzania)": {
+            "languageCode": "en-TZ"
+        },
+        "English (United Kingdom)": {
+            "languageCode": "en-GB"
+        },
+        "English (United States)": {
+            "languageCode": "en-US"
+        },
+        "Estonian (Estonia)": {
+            "languageCode": "et-EE"
+        },
+        "Finnish (Finland)": {
+            "languageCode": "fi-FI"
+        },
+        "French (Belgium)": {
+            "languageCode": "fr-BE"
+        },
+        "French (Canada)": {
+            "languageCode": "fr-CA"
+        },
+        "French (France)": {
+            "languageCode": "fr-FR"
+        },
+        "French (Switzerland)": {
+            "languageCode": "fr-CH"
+        },
+        "Galician (Spain)": {
+            "languageCode": "gl-ES"
+        },
+        "Georgian (Georgia)": {
+            "languageCode": "ka-GE"
+        },
+        "German (Austria)": {
+            "languageCode": "de-AT"
+        },
+        "German (Germany)": {
+            "languageCode": "de-DE"
+        },
+        "German (Switzerland)": {
+            "languageCode": "de-CH"
+        },
+        "Greek (Greece)": {
+            "languageCode": "el-GR"
+        },
+        "Gujarati (India)": {
+            "languageCode": "gu-IN"
+        },
+        "Hausa (Nigeria)": {
+            "languageCode": "ha-NG"
+        },
+        "Hebrew (Israel)": {
+            "languageCode": "iw-IL"
+        },
+        "Hindi (India)": {
+            "languageCode": "hi-IN"
+        },
+        "Hungarian (Hungary)": {
+            "languageCode": "hu-HU"
+        },
+        "Icelandic (Iceland)": {
+            "languageCode": "is-IS"
+        },
+        "Igbo (Nigeria)": {
+            "languageCode": "ig-NG"
+        },
+        "Indonesian (Indonesia)": {
+            "languageCode": "id-ID"
+        },
+        "Italian (Italy)": {
+            "languageCode": "it-IT"
+        },
+        "Italian (Switzerland)": {
+            "languageCode": "it-CH"
+        },
+        "Japanese (Japan)": {
+            "languageCode": "ja-JP"
+        },
+        "Javanese (Indonesia)": {
+            "languageCode": "jv-ID"
+        },
+        "Kannada (India)": {
+            "languageCode": "kn-IN"
+        },
+        "Kazakh (Kazakhstan)": {
+            "languageCode": "kk-KZ"
+        },
+        "Khmer (Cambodia)": {
+            "languageCode": "km-KH"
+        },
+        "Kinyarwanda (Rwanda)": {
+            "languageCode": "rw-RW"
+        },
+        "Korean (South Korea)": {
+            "languageCode": "ko-KR"
+        },
+        "Lao (Laos)": {
+            "languageCode": "lo-LA"
+        },
+        "Latvian (Latvia)": {
+            "languageCode": "lv-LV"
+        },
+        "Lithuanian (Lithuania)": {
+            "languageCode": "lt-LT"
+        },
+        "Macedonian (North Macedonia)": {
+            "languageCode": "mk-MK"
+        },
+        "Malay (Malaysia)": {
+            "languageCode": "ms-MY"
+        },
+        "Malayalam (India)": {
+            "languageCode": "ml-IN"
+        },
+        "Marathi (India)": {
+            "languageCode": "mr-IN"
+        },
+        "Mongolian (Mongolia)": {
+            "languageCode": "mn-MN"
+        },
+        "Nepali (Nepal)": {
+            "languageCode": "ne-NP"
+        },
+        "Norwegian Bokm\u00e5l (Norway)": {
+            "languageCode": "no-NO"
+        },
+        "Persian (Iran)": {
+            "languageCode": "fa-IR"
+        },
+        "Polish (Poland)": {
+            "languageCode": "pl-PL"
+        },
+        "Punjabi (Gurmukhi India)": {
+            "languageCode": "pa-Guru-IN"
+        },
+        "Romanian (Romania)": {
+            "languageCode": "ro-RO"
+        },
+        "Russian (Russia)": {
+            "languageCode": "ru-RU"
+        },
+        "Sepedi (South Africa)": {
+            "languageCode": "nso-ZA"
+        },
+        "Serbian (Serbia)": {
+            "languageCode": "sr-RS"
+        },
+        "Slovak (Slovakia)": {
+            "languageCode": "sk-SK"
+        },
+        "Slovenian (Slovenia)": {
+            "languageCode": "sl-SI"
+        },
+        "Spanish (Argentina)": {
+            "languageCode": "es-AR"
+        },
+        "Spanish (Bolivia)": {
+            "languageCode": "es-BO"
+        },
+        "Spanish (Chile)": {
+            "languageCode": "es-CL"
+        },
+        "Spanish (Colombia)": {
+            "languageCode": "es-CO"
+        },
+        "Spanish (Costa Rica)": {
+            "languageCode": "es-CR"
+        },
+        "Spanish (Dominican Republic)": {
+            "languageCode": "es-DO"
+        },
+        "Spanish (Ecuador)": {
+            "languageCode": "es-EC"
+        },
+        "Spanish (El Salvador)": {
+            "languageCode": "es-SV"
+        },
+        "Spanish (Guatemala)": {
+            "languageCode": "es-GT"
+        },
+        "Spanish (Honduras)": {
+            "languageCode": "es-HN"
+        },
+        "Spanish (Mexico)": {
+            "languageCode": "es-MX"
+        },
+        "Spanish (Nicaragua)": {
+            "languageCode": "es-NI"
+        },
+        "Spanish (Panama)": {
+            "languageCode": "es-PA"
+        },
+        "Spanish (Paraguay)": {
+            "languageCode": "es-PY"
+        },
+        "Spanish (Peru)": {
+            "languageCode": "es-PE"
+        },
+        "Spanish (Puerto Rico)": {
+            "languageCode": "es-PR"
+        },
+        "Spanish (Spain)": {
+            "languageCode": "es-ES"
+        },
+        "Spanish (United States)": {
+            "languageCode": "es-US"
+        },
+        "Spanish (Uruguay)": {
+            "languageCode": "es-UY"
+        },
+        "Spanish (Venezuela)": {
+            "languageCode": "es-VE"
+        },
+        "Sundanese (Indonesia)": {
+            "languageCode": "su-ID"
+        },
+        "Swahili": {
+            "languageCode": "sw"
+        },
+        "Swahili (Kenya)": {
+            "languageCode": "sw-KE"
+        },
+        "Swahili (Tanzania)": {
+            "languageCode": "sw-TZ"
+        },
+        "Swati (Latin, South Africa)": {
+            "languageCode": "ss-Latn-ZA"
+        },
+        "Swedish (Sweden)": {
+            "languageCode": "sv-SE"
+        },
+        "Tamil (India)": {
+            "languageCode": "ta-IN"
+        },
+        "Tamil (Malaysia)": {
+            "languageCode": "ta-MY"
+        },
+        "Tamil (Singapore)": {
+            "languageCode": "ta-SG"
+        },
+        "Tamil (Sri Lanka)": {
+            "languageCode": "ta-LK"
+        },
+        "Telugu (India)": {
+            "languageCode": "te-IN"
+        },
+        "Thai (Thailand)": {
+            "languageCode": "th-TH"
+        },
+        "Tsonga (South Africa)": {
+            "languageCode": "ts-ZA"
+        },
+        "Tswana (Latin, South Africa)": {
+            "languageCode": "tn-Latn-ZA"
+        },
+        "Turkish (Turkey)": {
+            "languageCode": "tr-TR"
+        },
+        "Ukrainian (Ukraine)": {
+            "languageCode": "uk-UA"
+        },
+        "Urdu (India)": {
+            "languageCode": "ur-IN"
+        },
+        "Urdu (Pakistan)": {
+            "languageCode": "ur-PK"
+        },
+        "Uzbek (Uzbekistan)": {
+            "languageCode": "uz-UZ"
+        },
+        "Vietnamese (Vietnam)": {
+            "languageCode": "vi-VN"
+        },
+        "Xhosa (South Africa)": {
+            "languageCode": "xh-ZA"
+        },
+        "Yoruba (Nigeria)": {
+            "languageCode": "yo-NG"
+        },
+        "Zulu (South Africa)": {
+            "languageCode": "zu-ZA"
+        }
+    }
+}
