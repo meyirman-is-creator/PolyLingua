@@ -1,0 +1,16 @@
+{
+    "TTSpeech" :{
+        "ru":{"languageCode": "ru-RU", "name": "ru-RU-Standard-A"},
+        "otherLanguage":{"languageCode":"appropriate language code","name":"appropriate syntesizer name"}
+    },
+    "translate":{
+        "Afrikaans": "af",
+        "Albanian": "sq",
+        "otherLanguage": "appropriate language code"
+    },
+    "STText":{
+        "Afrikaans": "af-ZA",
+        "Amharic": "am-ET",
+        "otherLanguage":"appropriate language code"
+    }
+}
