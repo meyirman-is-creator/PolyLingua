@@ -163,58 +163,76 @@
                 <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                  <title>YouTube Video with Simultaneous Audio</title>
                 </head>
                 <body>
-                  <!-- YouTube Video -->
-                  <div onclick="onPlayerStateChange()" id="videoContainer" style="position: relative; width: 560px; height: 315px;">
-                    <iframe id="youtubePlayer" width="560" height="315" src="https://www.youtube.com/embed/duP_AI2B2XM?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-                  </div>
-
-                  <!-- Audio Element -->
-                  <audio id="audioPlayer" src=""></audio>
-                  <!-- Controls -->
+                  <script> window.videoUri = '';</script>
+                  <input type="file" id="videoInput" accept="video/mp4">
+                  <button onclick="uploadVideo()">Upload Video</button>
+                  <video id="videoPlayer" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  <audio id="audioPlayer" controls>
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                  </audio>
+                  
                   <button onclick="playAll()">Play</button>
                   <button onclick="pauseAll()">Pause</button>
-
+                
                   <script>
-                    // Get references to the YouTube player and audio player
-                    var youtubePlayer;
                     var audioPlayer = document.getElementById('audioPlayer');
-
-                    // Overlay element
-                    var overlay = document.getElementById('overlay');
-                    var player
-                    // Initialize YouTube iframe API
-                    function onPlayerReady(event) {
-                        event.target.playVideo();
-                      }
-                    function onYouTubeIframeAPIReady() {
-                        console.log('ready');
-                        player = new YT.Player('youtubePlayer', {
-                        events: {
-                          'onReady': onPlayerReady
-                        }
-                      });
-                    }
+                    var videoPlayer = document.getElementById('videoPlayer');
+                
                     function playAll() {
-                      if (player) {
-                        console.log('clicked4')
-
-                        player.playVideo();
-                      }
+                      videoPlayer.play();
                       audioPlayer.play();
                     }
+                
                     function pauseAll() {
-                      if (player) {
-                        console.log('clicked5')
-
-                        player.pauseVideo();
-                      }
+                      videoPlayer.pause();
                       audioPlayer.pause();
                     }
+                    videoPlayer.addEventListener('timeupdate', syncPlayback);
+                  
+                    function syncPlayback() {
+                      const videoTime = videoPlayer.currentTime;
+                      const audioTime = audioPlayer.currentTime;
+
+                      if (!isNaN(videoTime)) {
+                        audioPlayer.currentTime = videoTime;
+                      }
+                    }
+                    async function uploadVideo() {
+                      const fileInput = document.getElementById('videoInput');
+                      const file = fileInput.files[0];
+                      
+                      if (!file) {
+                        alert('Please select a video file.');
+                        return;
+                      }
+
+                      const formData = new FormData();
+                      formData.append('video', file);
+
+                      try {
+                        const response = await fetch('http://127.0.0.1:5501/upload-video', {
+                          method: 'POST',
+                          body: formData
+                        });
+                        const data = await response.json();
+                        const videoUrl = data.videoUrl;
+                        window.videoUri = data.videoUri;
+                        // Set the video src to the uploaded video URL
+                        videoPlayer.src = videoUrl;
+                        // Show the video player
+                        videoPlayer.style.display = 'block';
+                      } catch (error) {
+                        console.error('Error uploading video:', error);
+                      }
+                    }
                   </script>
-                  <script src="https://www.youtube.com/iframe_api"></script>
                 </body>
                 </html>
                 <select name="From" id="sourceLanguage">
@@ -448,6 +466,8 @@
                   <option value="Vietnamese(Vietnam)F">Vietnamese(Vietnam)F</option>
                   <option value="Vietnamese(Vietnam)M">Vietnamese(Vietnam)M</option>
                 </select>
+                <button id="Translate">Translate</button>
+                
             </div>
           </div>
         </div>
@@ -460,6 +480,38 @@
       crossorigin="anonymous"
     ></script>
     <script type="module"  src="js/main__page.js"></script>
-    <script type="module" src="translator.js"></script>
+    <script>
+          const from = document.getElementById("sourceLanguage") ;
+          const to = document.getElementById("targetLanguage");
+          
+          document.getElementById('Translate').addEventListener('click', async () => {
+            const optionFrom = from.value ;
+            const optionTo = to.value;
+            const path = window.videoUri;
+            try {
+            // Данные для отправки
+              const dataToSend = { optionTo: optionTo, optionFrom: optionFrom, path: path };
+
+              // Отправляем POST запрос на сервер
+              const response = await fetch('http://127.0.0.1:5501/api/data', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToSend)
+              });
+
+              // Получаем ответ в формате текста
+              const audioData = await response.arrayBuffer();
+              const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
+              const audioBlobUrl = URL.createObjectURL(audioBlob);
+
+              const audioElement = document.getElementById('audioPlayer');
+              audioElement.src = audioBlobUrl;
+            } catch (error) {
+              console.error('Ошибка при отправке запроса:', error);
+            }
+          });
+    </script>
   </body>
 </html>

@@ -479,7 +479,7 @@ async function transcribeVideo(audioFilePath,sourceLanguage) {
     return timestamps;
 }
 
-export { transcribeVideo };
+module.exports = { transcribeVideo };
 const inputVideoPath = 'gs://polylingua-videos/videoplayback.mp4';
 const audioFilePath = 'd:/Загрузки/cultur.mp4';
 

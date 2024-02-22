@@ -447,7 +447,7 @@ async function generateAudioFromSSML(ssmls,targetLanguage) {
     console.log('Concatenated audio file generated successfully.');
     return concatenatedAudio;
 }
-export {generateAudioFromSSML,voices};
+module.exports = {generateAudioFromSSML,voices};
 // async function main() {
 //     const ssmls = [
 //         {
