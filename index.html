@@ -166,12 +166,19 @@
                 </head>
                 <body>
                   <script> window.videoUri = '';</script>
-                  <input type="file" id="videoInput" accept="video/mp4">
-                  <button onclick="uploadVideo()">Upload Video</button>
-                  <video id="videoPlayer" controls>
-                    <source src="" type="video/mp4">
+                  <div id="dropArea">
+                    <p>Drag & Drop video file here or <input type="file" id="fileInput"> to upload</p>
+                  </div>
+                  <video id="videoPlayer" class="video-palyer" controls style="display: none;">
+                    <source id="videoSource" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
+                  <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
+                  <button onclick="uploadVideo()">Upload Video</button>
+                  <!-- <video id="videoPlayer" controls> -->
+                    <!-- <source src="" type="video/mp4"> -->
+                    <!-- Your browser does not support the video tag. -->
+                  <!-- </video> -->
                   
                   <audio id="audioPlayer" controls>
                     <source src="" type="audio/mpeg">
@@ -180,34 +187,51 @@
                   
                   <button onclick="playAll()">Play</button>
                   <button onclick="pauseAll()">Pause</button>
-                
                   <script>
-                    var audioPlayer = document.getElementById('audioPlayer');
-                    var videoPlayer = document.getElementById('videoPlayer');
-                
-                    function playAll() {
-                      videoPlayer.play();
-                      audioPlayer.play();
-                    }
-                
-                    function pauseAll() {
-                      videoPlayer.pause();
-                      audioPlayer.pause();
-                    }
-                    videoPlayer.addEventListener('timeupdate', syncPlayback);
-                  
-                    function syncPlayback() {
-                      const videoTime = videoPlayer.currentTime;
-                      const audioTime = audioPlayer.currentTime;
+                    const dropArea = document.getElementById('dropArea');
+                    const fileInput = document.getElementById('fileInput');
+                    const videoSource = document.getElementById('videoSource');
 
-                      if (!isNaN(videoTime)) {
-                        audioPlayer.currentTime = videoTime;
-                      }
+                    // Prevent default behavior to enable drag and drop
+                    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                      dropArea.addEventListener(eventName, preventDefaults, false);
+                      document.body.addEventListener(eventName, preventDefaults, false);
+                    });
+
+                    // Highlight drop area when file dragged over
+                    ['dragenter', 'dragover'].forEach(eventName => {
+                      dropArea.addEventListener(eventName, highlight, false);
+                    });
+
+                    ['dragleave', 'drop'].forEach(eventName => {
+                      dropArea.addEventListener(eventName, unhighlight, false);
+                    });
+
+                    // Handle dropped files
+                    dropArea.addEventListener('drop', handleDrop, false);
+
+                    // Handle file input change
+                    fileInput.addEventListener('change', handleFiles, false);
+
+                    function preventDefaults(e) {
+                      e.preventDefault();
+                      e.stopPropagation();
                     }
-                    async function uploadVideo() {
-                      const fileInput = document.getElementById('videoInput');
-                      const file = fileInput.files[0];
-                      
+
+                    function highlight() {
+                      dropArea.classList.add('highlight');
+                    }
+
+                    function unhighlight() {
+                      dropArea.classList.remove('highlight');
+                    }
+
+                    function handleDrop(e) {
+                      const dt = e.dataTransfer;
+                      const files = dt.files;
+                      handleFiles(files);
+                    }
+                    async function uploadVideo(file) {                      
                       if (!file) {
                         alert('Please select a video file.');
                         return;
@@ -230,6 +254,41 @@
                         videoPlayer.style.display = 'block';
                       } catch (error) {
                         console.error('Error uploading video:', error);
+                      }
+                    }
+                    function handleFiles(files) {
+                      if (files.length > 0) {
+                        const file = files[0];
+                        // Display video player and set source
+                        uploadVideo(file);
+                        // videoPlayer.style.display = 'block';
+                        // videoSource.src = URL.createObjectURL(file);
+                        // videoPlayer.load();
+                      }
+                    }
+
+                  </script>
+                  <script>
+                    var audioPlayer = document.getElementById('audioPlayer');
+                    var videoPlayer = document.getElementById('videoPlayer');
+                    
+                    function playAll() {
+                      videoPlayer.play();
+                      audioPlayer.play();
+                    }
+                
+                    function pauseAll() {
+                      videoPlayer.pause();
+                      audioPlayer.pause();
+                    }
+                    videoPlayer.addEventListener('timeupdate', syncPlayback);
+                  
+                    function syncPlayback() {
+                      const videoTime = videoPlayer.currentTime;
+                      const audioTime = audioPlayer.currentTime;
+
+                      if (!isNaN(videoTime)) {
+                        audioPlayer.currentTime = videoTime;
                       }
                     }
                   </script>

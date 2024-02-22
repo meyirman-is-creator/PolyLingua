@@ -330,4 +330,32 @@ label {
 #videoPlayer {
     width: 640px; /* Set the width of the video */
     height: 360px; /* Set the height of the video */
+}
+#dropArea {
+    width: 640px;
+    height: 360px;
+    border: 6px dashed #8A8AC3;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  #dropArea p {
+    margin: 0;
+  }
+  
+#file-upload-button {
+    /* align-content: center; */
+    padding: 10 10 10 10;
+    margin: 10 10 10 10;
+
+}
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
