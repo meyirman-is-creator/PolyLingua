@@ -37,7 +37,9 @@ body {
 .main-page {
     margin-top: 25px;
 }
-
+.main-page__body{
+    padding-top: 20px;
+}
 .main-page__inner {
     display: flex;
     height: 800px;
@@ -201,9 +203,11 @@ body {
     font-size: 15px;
     border: none;
 }
-.user-btn.delete .fi-sr-user{
+
+.user-btn.delete .fi-sr-user {
     display: none;
 }
+
 .user-btn i {
     line-height: 25px;
 }
@@ -327,3 +331,4 @@ label {
 .btn.btn-outline-primary .syrtta.syrtta-login.off {
     display: none;
 }
+

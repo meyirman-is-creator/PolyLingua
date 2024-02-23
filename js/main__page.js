@@ -105,7 +105,7 @@ toRegistrationPage.addEventListener('click', () => {
     window.open('./registration_page.html', '_self')
 });
 singOut.addEventListener('click', () => {
-    localStorage.setItem('user', '')
+    localStorage.setIte ('user', '')
     location.reload();
 })
 openLogin.addEventListener('click', () => {
@@ -148,7 +148,7 @@ async function fetchUserData(uid) {
                 email: docSnap.data().email,
                 createPassword: docSnap.data().password,
                 confirmPassword: docSnap.data().password,
-                uid: docSnap.data().uid
+                uid: docSnap.data().uid,
             };
             userBtnIcon.style.backgroundImage = `url('${docSnap.data().profilePicture}')`;
             userBtnIcon.classList.add('delete');
