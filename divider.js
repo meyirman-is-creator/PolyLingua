@@ -56,7 +56,7 @@ async function translateAndGenerateSSML(timestamps,targetLanguage) {
         const translatedText = await translateText(segment, target);
 
         // Generate SSML for the translated text and pause
-        const ssml = `<speak><break time="${pauseBeforeSegment}s"/><prosody rate ="0.8">${translatedText}</prosody></speak>`;
+        const ssml = `<speak><break time="${pauseBeforeSegment}s"/>${translatedText}</speak>`;
 
         // Push the translated text and SSML to the array
         translatedSegments.push({ ssml: ssml });

@@ -1,300 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PolyLingua</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style/main_page.css" />
-    <link rel="stylesheet" href="style/main__page-media.css" />
-  </head>
-  <body>
-    <section class="main-page">
 
-      <div class="container">
-        <div id="myModal" class="modal" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <label class="email" for="toEmail">
-                  <i class="fi fi-rr-envelope"></i>
-                  <input
-                    class="email_input"
-                    autocomplete="off"
-                    id="toEmailModal"
-                    placeholder="Email"
-                    type="text"
-                    required
-                  />
-                </label>
-                <label for="createPassword" class="create__password">
-                  <i class="fi fi-rr-lock"></i>
-                  <input
-                    class="password_input"
-                    autocomplete="off"
-                    id="createPasswordModal"
-                    placeholder="Password"
-                    type="password"
-                    required
-                  />
-                </label>
-              </div>
-              <div class="modal-footer">
-                <button id="to-sign-up" type="button" class="btn  sign-up-btn-modal" data-bs-dismiss="modal">Sign Up</button>
-                <button id="to-sign-in-modal" type="button" class="btn  sign-in-btn-modal">Sign In</button>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PolyLingua</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style/main_page.css" />
+  <link rel="stylesheet" href="style/main__page-media.css" />
+</head>
+
+<body>
+  <section class="main-page">
+
+    <div class="container">
+      <div id="myModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Login</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label class="email" for="toEmail">
+                <i class="fi fi-rr-envelope"></i>
+                <input class="email_input" autocomplete="off" id="toEmailModal" placeholder="Email" type="text"
+                  required />
+              </label>
+              <label for="createPassword" class="create__password">
+                <i class="fi fi-rr-lock"></i>
+                <input class="password_input" autocomplete="off" id="createPasswordModal" placeholder="Password"
+                  type="password" required />
+              </label>
+            </div>
+            <div class="modal-footer">
+              <button id="to-sign-up" type="button" class="btn  sign-up-btn-modal" data-bs-dismiss="modal">Sign
+                Up</button>
+              <button id="to-sign-in-modal" type="button" class="btn  sign-in-btn-modal">Sign In</button>
             </div>
           </div>
         </div>
-        <div class="main-page__inner">
-          <div class="main-page__right">
-            <nav class="navbar navbar-expand-lg">
-              <div class="container-fluid">
-                <a class="navbar-brand navbar-brand__syrtta" href="#">
-                  <i class="fi fi-rr-books"></i>
-                  <span>PolyLingua</span>
-                </a>
+      </div>
+      <div class="main-page__inner">
+        <div class="main-page__right">
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand navbar-brand__syrtta" href="#">
+                <i class="fi fi-rr-books"></i>
+                <span>PolyLingua</span>
+              </a>
 
-                <div
-                  class="offcanvas offcanvas-start"
-                  tabindex="-1"
-                  id="offcanvasNavbar"
-                  aria-labelledby="offcanvasNavbarLabel"
-                >
-                  <div class="offcanvas-header">
-                    <a class="navbar-brand" href="#">
-                      <i class="fi fi-rr-books"></i>
-                      <span>PolyLingua</span>
-                    </a>
-                    <button
-                      type="button"
-                      class="btn-close text-reset bg-white"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                      <li class="nav-item">
-                        <a id="toProfile" class="nav-link" aria-current="page" href="#">
-                          <i class="fi fi-rr-user"></i>
-                          <span>Profile</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                          <i class="fi fi-sr-graduation-cap"></i>
-                          <span>Course</span>
-                        </a>
-                      </li>
-                      
-                      <button id="open-login-in" type="button" class="btn btn-outline-primary ishinde ishinde-login">
-                        <span>Login</span>
-                        <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
-                      </button>
-                      
-                      <button id="sign-out-in" type="button" class="btn btn-outline-primary ishinde off">
-                        <i class="fi fi-rr-exit"></i>
-                        <span>Sign out</span>
-                      </button>
-                    </ul>
-                  </div>
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <a class="navbar-brand" href="#">
+                    <i class="fi fi-rr-books"></i>
+                    <span>PolyLingua</span>
+                  </a>
+                  <button type="button" class="btn-close text-reset bg-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a id="toProfile" class="nav-link" aria-current="page" href="#">
+                        <i class="fi fi-rr-user"></i>
+                        <span>Profile</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">
+                        <i class="fi fi-sr-graduation-cap"></i>
+                        <span>Course</span>
+                      </a>
+                    </li>
+
+                    <button id="open-login-in" type="button" class="btn btn-outline-primary ishinde ishinde-login">
+                      <span>Login</span>
+                      <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+                    </button>
+
+                    <button id="sign-out-in" type="button" class="btn btn-outline-primary ishinde off">
+                      <i class="fi fi-rr-exit"></i>
+                      <span>Sign out</span>
+                    </button>
+                  </ul>
                 </div>
               </div>
-            </nav>
-            <button id="open-login" type="button" class="btn btn-outline-primary syrtta syrtta-login">
-              <span>Login</span>
-              <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+            </div>
+          </nav>
+          <button id="open-login" type="button" class="btn btn-outline-primary syrtta syrtta-login">
+            <span>Login</span>
+            <i class="fi fi-rr-sign-in-alt fi-rr-sign-in-alt-login"></i>
+          </button>
+
+          <button id="sign-out" type="button" class="btn btn-outline-primary syrtta off">
+            <i class="fi fi-rr-exit"></i>
+            <span>Sign out</span>
+          </button>
+        </div>
+        <div class="main-page__left">
+          <header class="main-page__header">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar">
+              <i class="fi fi-rr-list"></i>
             </button>
-            
-            <button id="sign-out" type="button" class="btn btn-outline-primary syrtta off">
-              <i class="fi fi-rr-exit"></i>
-              <span>Sign out</span>
-            </button>
-          </div>
-          <div class="main-page__left">
-            <header class="main-page__header">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar"
-              >
-                <i class="fi fi-rr-list"></i>
+            <div class="header__btns">
+              <button type="button" id="user-btn-icon" class="btn btn-primary user-btn">
+                <i class="fi fi-sr-user"></i>
               </button>
-              <div class="header__btns">
-                <button type="button" id="user-btn-icon" class="btn btn-primary user-btn">
-                  <i class="fi fi-sr-user"></i>
-                </button>
+
+            </div>
+          </header>
+          <div class="main-page__body">
+
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <link
+                href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+                rel="stylesheet" />
+              <link rel="stylesheet" href="./style/video.css">
+              <link rel="stylesheet" href="./style/video-media.css">
+            </head>
+
+            <body>
+              <script> window.videoUri = '';</script>
+              <div id="dropArea" class="dropArea ">
+                <p class="dropArea__text">Drag & Drop video file here or to upload</p>
+                <input type="file" class="fileInput-in" id="fileInput">
+              </div>
+              <video id="videoPlayer" class="video-palyer" controls style="display: none;">
+                <source id="videoSource" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="buttons">
+                <button class="upload__video" onclick="uploadVideo()">Upload Video</button>
+                <!-- <video id="videoPlayer" controls> -->
+                <!-- <source src="" type="video/mp4"> -->
+                <!-- Your browser does not support the video tag. -->
+                <!-- </video> -->
+                <button class="play" onclick="playAll()">Play</button>
+                <button class="pause" onclick="pauseAll()">Pause</button>
                 
               </div>
-            </header>
-            <div class="main-page__body">
-              <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                  <meta charset="UTF-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                </head>
-                <body>
-                  <script> window.videoUri = '';</script>
-                  <div id="dropArea">
-                    <p>Drag & Drop video file here or <input type="file" id="fileInput"> to upload</p>
-                  </div>
-                  <video id="videoPlayer" class="video-palyer" controls style="display: none;">
-                    <source id="videoSource" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                  <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
-                  <button onclick="uploadVideo()">Upload Video</button>
-                  <!-- <video id="videoPlayer" controls> -->
-                    <!-- <source src="" type="video/mp4"> -->
-                    <!-- Your browser does not support the video tag. -->
-                  <!-- </video> -->
-                  
-                  <audio id="audioPlayer" controls>
-                    <source src="" type="audio/mpeg">
-                    Your browser does not support the audio tag.
-                  </audio>
-                  
-                  <button onclick="playAll()">Play</button>
-                  <button onclick="pauseAll()">Pause</button>
-                  <script>
-                    const dropArea = document.getElementById('dropArea');
-                    const fileInput = document.getElementById('fileInput');
-                    const videoSource = document.getElementById('videoSource');
+              <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
 
-                    // Prevent default behavior to enable drag and drop
-                    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                      dropArea.addEventListener(eventName, preventDefaults, false);
-                      document.body.addEventListener(eventName, preventDefaults, false);
+
+              <audio class="audioPlayer" id="audioPlayer" controls>
+                <source src="" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+              <form id="youtubeForm">
+                <input type="text" id="youtubeLink" placeholder="Enter YouTube link">
+                <button type="submit">Submit</button>
+              </form>
+              <script>
+                const dropArea = document.getElementById('dropArea');
+                const fileInput = document.getElementById('fileInput');
+                const videoSource = document.getElementById('videoSource');
+
+                // Prevent default behavior to enable drag and drop
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                  dropArea.addEventListener(eventName, preventDefaults, false);
+                  document.body.addEventListener(eventName, preventDefaults, false);
+                });
+
+                // Highlight drop area when file dragged over
+                ['dragenter', 'dragover'].forEach(eventName => {
+                  dropArea.addEventListener(eventName, highlight, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                  dropArea.addEventListener(eventName, unhighlight, false);
+                });
+
+                // Handle dropped files
+                dropArea.addEventListener('drop', handleDrop, false);
+
+                // Handle file input change
+                fileInput.addEventListener('change', handleFiles, false);
+
+                function preventDefaults(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }
+
+                function highlight() {
+                  dropArea.classList.add('highlight');
+                }
+
+                function unhighlight() {
+                  dropArea.classList.remove('highlight');
+                }
+
+                function handleDrop(e) {
+                  const dt = e.dataTransfer;
+                  const files = dt.files;
+                  handleFiles(files);
+                }
+                async function uploadVideo(file) {
+                  if (!file) {
+                    alert('Please select a video file.');
+                    return;
+                  }
+
+                  const formData = new FormData();
+                  formData.append('video', file);
+
+                  try {
+                    const response = await fetch('http://127.0.0.1:5501/upload-video', {
+                      method: 'POST',
+                      body: formData
                     });
-
-                    // Highlight drop area when file dragged over
-                    ['dragenter', 'dragover'].forEach(eventName => {
-                      dropArea.addEventListener(eventName, highlight, false);
-                    });
-
-                    ['dragleave', 'drop'].forEach(eventName => {
-                      dropArea.addEventListener(eventName, unhighlight, false);
-                    });
-
-                    // Handle dropped files
-                    dropArea.addEventListener('drop', handleDrop, false);
-
-                    // Handle file input change
-                    fileInput.addEventListener('change', handleFiles, false);
-
-                    function preventDefaults(e) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }
-
-                    function highlight() {
-                      dropArea.classList.add('highlight');
-                    }
-
-                    function unhighlight() {
-                      dropArea.classList.remove('highlight');
-                    }
-
-                    function handleDrop(e) {
-                      const dt = e.dataTransfer;
-                      const files = dt.files;
-                      handleFiles(files);
-                    }
-                    async function uploadVideo(file) {                      
-                      if (!file) {
-                        alert('Please select a video file.');
-                        return;
-                      }
-
-                      const formData = new FormData();
-                      formData.append('video', file);
+                    const data = await response.json();
+                    const videoUrl = data.videoUrl;
+                    window.videoUri = data.videoUri;
+                    // Set the video src to the uploaded video URL
+                    videoPlayer.src = videoUrl;
+                    // Show the video player
+                    videoPlayer.style.display = 'block';
+                  } catch (error) {
+                    console.error('Error uploading video:', error);
+                  }
+                }
+                function handleFiles(files) {
+                  if (files.length > 0) {
+                    const file = files[0];
+                    // Display video player and set source
+                    uploadVideo(file);
+                    // videoPlayer.style.display = 'block';
+                    // videoSource.src = URL.createObjectURL(file);
+                    // videoPlayer.load();
+                  }
+                }
+                document.getElementById('youtubeForm').addEventListener('submit', async (event) => {
+                      event.preventDefault();
+                      const youtubeLink = document.getElementById('youtubeLink').value;
 
                       try {
-                        const response = await fetch('http://127.0.0.1:5501/upload-video', {
-                          method: 'POST',
-                          body: formData
-                        });
-                        const data = await response.json();
-                        const videoUrl = data.videoUrl;
-                        window.videoUri = data.videoUri;
-                        // Set the video src to the uploaded video URL
-                        videoPlayer.src = videoUrl;
-                        // Show the video player
-                        videoPlayer.style.display = 'block';
+                          const response = await fetch('http://127.0.0.1:5501/upload-yt-video', {
+                              method: 'POST',
+                              headers: {
+                                  'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify({ youtubeLink })
+                          });
+                          const data = await response.json();
+                          const videoUrl = data.videoUrl;
+                          window.videoUri = data.videoUri;
+                          // Set the video src to the uploaded video URL
+                          videoPlayer.src = videoUrl;
+                          // Show the video player
+                          videoPlayer.style.display = 'block';
                       } catch (error) {
                         console.error('Error uploading video:', error);
                       }
-                    }
-                    function handleFiles(files) {
-                      if (files.length > 0) {
-                        const file = files[0];
-                        // Display video player and set source
-                        uploadVideo(file);
-                        // videoPlayer.style.display = 'block';
-                        // videoSource.src = URL.createObjectURL(file);
-                        // videoPlayer.load();
-                      }
-                    }
+                  });
+              </script>
+              <script>
+                var audioPlayer = document.getElementById('audioPlayer');
+                var videoPlayer = document.getElementById('videoPlayer');
 
-                  </script>
-                  <script>
-                    var audioPlayer = document.getElementById('audioPlayer');
-                    var videoPlayer = document.getElementById('videoPlayer');
-                    
-                    function playAll() {
-                      videoPlayer.play();
-                      audioPlayer.play();
-                    }
+                function playAll() {
+                  videoPlayer.play();
+                  audioPlayer.play();
+                }
+
+                function pauseAll() {
+                  videoPlayer.pause();
+                  audioPlayer.pause();
+                }
+                function syncAudioWithVideoTime() {
+                // Get the current time scrolled in the video
+                    const videoTimeScrolled = (videoPlayer.currentTime / videoPlayer.duration) * videoPlayer.scrollWidth;
                 
-                    function pauseAll() {
-                      videoPlayer.pause();
-                      audioPlayer.pause();
-                    }
-                    videoPlayer.addEventListener('timeupdate', syncPlayback);
-                  
-                    function syncPlayback() {
-                      const videoTime = videoPlayer.currentTime;
-                      const audioTime = audioPlayer.currentTime;
+                    // Map video time scrolled to audio time (assuming audio duration is equal to video duration)
+                    const audioTime = (videoTimeScrolled / videoPlayer.scrollWidth) * audioPlayer.duration;
+                
+                    // Set audio playback position
+                    audioPlayer.currentTime = audioTime;
+                }
+                
+                // Add scroll event listener to sync audio with video time scrolled
+                videoPlayer.addEventListener('timeupdate', syncAudioWithVideoTime);
+                
+              </script>
+            </body>
 
-                      if (!isNaN(videoTime)) {
-                        audioPlayer.currentTime = videoTime;
-                      }
-                    }
-                  </script>
-                </body>
-                </html>
-                <select name="From" id="sourceLanguage">
+            </html>
+            <div class="selects">
+              <div class="from-text">
+                <p class="from__text">FROM:</p>
+                <select class="select__language" name="From" id="sourceLanguage">
                   <option value="Afrikaans(South Africa)">Afrikaans(South Africa)</option>
                   <option value="Albanian(Albania)">Albanian(Albania)</option>
                   <option value="Amharic(Ethiopia)">Amharic(Ethiopia)</option>
@@ -436,109 +448,113 @@
                   <option value="Xhosa(South Africa)">Xhosa(South Africa)</option>
                   <option value="Yoruba(Nigeria)">Yoruba(Nigeria)</option>
                   <option value="Zulu(South Africa)">Zulu(South Africa)</option>
-                  
+  
                 </select>
-                <select name="To" id="targetLanguage">
-                  <option value="Afrikaans(South Africa)F">Afrikaans(South Africa)F</option>
+              </div>
+              <div class="to-text">
+                <p class="to__text">TO:</p>
+                <select class="select__language" name="To" id="targetLanguage">
+                  <option value="Afrikaans(South Africa)F">Afrikaans(South Africa)Female</option>
                   <option value="ArabicF">ArabicF</option>
                   <option value="ArabicM">ArabicM</option>
-                  <option value="Basque(Spain)F">Basque(Spain)F</option>
-                  <option value="Bengali(India)F">Bengali(India)F</option>
-                  <option value="Bengali(India)M">Bengali(India)M</option>
-                  <option value="Bulgarian(Bulgaria)F">Bulgarian(Bulgaria)F</option>
-                  <option value="Catalan(Spain)F">Catalan(Spain)F</option>
-                  <option value="Czech(Czech Republic)F">Czech(Czech Republic)F</option>
-                  <option value="Danish(Denmark)F">Danish(Denmark)F</option>
-                  <option value="Danish(Denmark)M">Danish(Denmark)M</option>
-                  <option value="Dutch(Belgium)F">Dutch(Belgium)F</option>
-                  <option value="Dutch(Belgium)M">Dutch(Belgium)M</option>
-                  <option value="Dutch(Netherlands)F">Dutch(Netherlands)F</option>
-                  <option value="Dutch(Netherlands)M">Dutch(Netherlands)M</option>
-                  <option value="English(Australia)F">English(Australia)F</option>
-                  <option value="English(Australia)M">English(Australia)M</option>
-                  <option value="English(India)F">English(India)F</option>
-                  <option value="English(India)M">English(India)M</option>
-                  <option value="English(UK)F">English(UK)F</option>
-                  <option value="English(UK)M">English(UK)M</option>
-                  <option value="English(US)F">English(US)F</option>
-                  <option value="English(US)M">English(US)M</option>
-                  <option value="Finnish(Finland)F">Finnish(Finland)F</option>
-                  <option value="French(Canada)F">French(Canada)F</option>
-                  <option value="French(Canada)M">French(Canada)M</option>
-                  <option value="French(France)F">French(France)F</option>
-                  <option value="French(France)M">French(France)M</option>
-                  <option value="Galician(Spain)F">Galician(Spain)F</option>
-                  <option value="German(Germany)F" selected>German(Germany)F</option>
-                  <option value="German(Germany)M">German(Germany)M</option>
-                  <option value="Greek(Greece)F">Greek(Greece)F</option>
-                  <option value="Gujarati(India)F">Gujarati(India)F</option>
-                  <option value="Gujarati(India)M">Gujarati(India)M</option>
-                  <option value="Hebrew(Israel)F">Hebrew(Israel)F</option>
-                  <option value="Hebrew(Israel)M">Hebrew(Israel)M</option>
-                  <option value="Hindi(India)F">Hindi(India)F</option>
-                  <option value="Hindi(India)M">Hindi(India)M</option>
-                  <option value="Hungarian(Hungary)F">Hungarian(Hungary)F</option>
-                  <option value="Icelandic(Iceland)F">Icelandic(Iceland)F</option>
-                  <option value="Indonesian(Indonesia)F">Indonesian(Indonesia)F</option>
-                  <option value="Indonesian(Indonesia)M">Indonesian(Indonesia)M</option>
-                  <option value="Italian(Italy)F">Italian(Italy)F</option>
-                  <option value="Italian(Italy)M">Italian(Italy)M</option>
-                  <option value="Japanese(Japan)F">Japanese(Japan)F</option>
-                  <option value="Japanese(Japan)M">Japanese(Japan)M</option>
-                  <option value="Kannada(India)F">Kannada(India)F</option>
-                  <option value="Kannada(India)M">Kannada(India)M</option>
-                  <option value="Korean(South Korea)F">Korean(South Korea)F</option>
-                  <option value="Korean(South Korea)M">Korean(South Korea)M</option>
-                  <option value="Latvian(Latvia)M">Latvian(Latvia)M</option>
-                  <option value="Lithuanian(Lithuania)M">Lithuanian(Lithuania)M</option>
-                  <option value="Malay(Malaysia)F">Malay(Malaysia)F</option>
-                  <option value="Malay(Malaysia)M">Malay(Malaysia)M</option>
-                  <option value="Malayalam(India)F">Malayalam(India)F</option>
-                  <option value="Malayalam(India)M">Malayalam(India)M</option>
-                  <option value="Marathi(India)F">Marathi(India)F</option>
-                  <option value="Marathi(India)M">Marathi(India)M</option>
-                  <option value="Norwegian(Norway)F">Norwegian(Norway)F</option>
-                  <option value="Norwegian(Norway)M">Norwegian(Norway)M</option>
-                  <option value="Polish(Poland)F">Polish(Poland)F</option>
-                  <option value="Polish(Poland)M">Polish(Poland)M</option>
-                  <option value="Punjabi(India)F">Punjabi(India)F</option>
-                  <option value="Punjabi(India)M">Punjabi(India)M</option>
-                  <option value="Romanian(Romania)F">Romanian(Romania)F</option>
-                  <option value="Russian(Russia)F">Russian(Russia)F</option>
-                  <option value="Russian(Russia)M">Russian(Russia)M</option>
-                  <option value="Serbian(Cyrillic)F">Serbian(Cyrillic)F</option>
-                  <option value="Slovak(Slovakia)F">Slovak(Slovakia)F</option>
-                  <option value="Spanish(Spain)F">Spanish(Spain)F</option>
-                  <option value="Spanish(Spain)M">Spanish(Spain)M</option>
-                  <option value="Spanish(US)F">Spanish(US)F</option>
-                  <option value="Spanish(US)M">Spanish(US)M</option>
-                  <option value="Swedish(Sweden)F">Swedish(Sweden)F</option>
-                  <option value="Swedish(Sweden)M">Swedish(Sweden)M</option>
-                  <option value="Tamil(India)F">Tamil(India)F</option>
-                  <option value="Tamil(India)M">Tamil(India)M</option>
-                  <option value="Telugu(India)F">Telugu(India)F</option>
-                  <option value="Telugu(India)M">Telugu(India)M</option>
-                  <option value="Thai(Thailand)F">Thai(Thailand)F</option>
-                  <option value="Turkish(Turkey)F">Turkish(Turkey)F</option>
-                  <option value="Turkish(Turkey)M">Turkish(Turkey)M</option>
-                  <option value="Ukrainian(Ukraine)F">Ukrainian(Ukraine)F</option>
-                  <option value="Vietnamese(Vietnam)F">Vietnamese(Vietnam)F</option>
-                  <option value="Vietnamese(Vietnam)M">Vietnamese(Vietnam)M</option>
+                  <option value="Basque(Spain)F">Basque(Spain)Female</option>
+                  <option value="Bengali(India)F">Bengali(India)Female</option>
+                  <option value="Bengali(India)M">Bengali(India)Male</option>
+                  <option value="Bulgarian(Bulgaria)F">Bulgarian(Bulgaria)Female</option>
+                  <option value="Catalan(Spain)F">Catalan(Spain)Female</option>
+                  <option value="Czech(Czech Republic)F">Czech(Czech Republic)Female</option>
+                  <option value="Danish(Denmark)F">Danish(Denmark)Female</option>
+                  <option value="Danish(Denmark)M">Danish(Denmark)Male</option>
+                  <option value="Dutch(Belgium)F">Dutch(Belgium)Female</option>
+                  <option value="Dutch(Belgium)M">Dutch(Belgium)Male</option>
+                  <option value="Dutch(Netherlands)F">Dutch(Netherlands)Female</option>
+                  <option value="Dutch(Netherlands)M">Dutch(Netherlands)Male</option>
+                  <option value="English(Australia)F">English(Australia)Female</option>
+                  <option value="English(Australia)M">English(Australia)Male</option>
+                  <option value="English(India)F">English(India)Female</option>
+                  <option value="English(India)M">English(India)Male</option>
+                  <option value="English(UK)F">English(UK)Female</option>
+                  <option value="English(UK)M">English(UK)Male</option>
+                  <option value="English(US)F">English(US)Female</option>
+                  <option value="English(US)M">English(US)Male</option>
+                  <option value="Finnish(Finland)F">Finnish(Finland)Female</option>
+                  <option value="French(Canada)F">French(Canada)Female</option>
+                  <option value="French(Canada)M">French(Canada)Male</option>
+                  <option value="French(France)F">French(France)Female</option>
+                  <option value="French(France)M">French(France)Male</option>
+                  <option value="Galician(Spain)F">Galician(Spain)Female</option>
+                  <option value="German(Germany)F" selected>German(Germany)Female</option>
+                  <option value="German(Germany)M">German(Germany)Male</option>
+                  <option value="Greek(Greece)F">Greek(Greece)Female</option>
+                  <option value="Gujarati(India)F">Gujarati(India)Female</option>
+                  <option value="Gujarati(India)M">Gujarati(India)Male</option>
+                  <option value="Hebrew(Israel)F">Hebrew(Israel)Female</option>
+                  <option value="Hebrew(Israel)M">Hebrew(Israel)Male</option>
+                  <option value="Hindi(India)F">Hindi(India)Female</option>
+                  <option value="Hindi(India)M">Hindi(India)Male</option>
+                  <option value="Hungarian(Hungary)F">Hungarian(Hungary)Female</option>
+                  <option value="Icelandic(Iceland)F">Icelandic(Iceland)Female</option>
+                  <option value="Indonesian(Indonesia)F">Indonesian(Indonesia)Female</option>
+                  <option value="Indonesian(Indonesia)M">Indonesian(Indonesia)Male</option>
+                  <option value="Italian(Italy)F">Italian(Italy)Female</option>
+                  <option value="Italian(Italy)M">Italian(Italy)Male</option>
+                  <option value="Japanese(Japan)F">Japanese(Japan)Female</option>
+                  <option value="Japanese(Japan)M">Japanese(Japan)Male</option>
+                  <option value="Kannada(India)F">Kannada(India)Female</option>
+                  <option value="Kannada(India)M">Kannada(India)Male</option>
+                  <option value="Korean(South Korea)F">Korean(South Korea)Female</option>
+                  <option value="Korean(South Korea)M">Korean(South Korea)Male</option>
+                  <option value="Latvian(Latvia)M">Latvian(Latvia)Male</option>
+                  <option value="Lithuanian(Lithuania)M">Lithuanian(Lithuania)Male</option>
+                  <option value="Malay(Malaysia)F">Malay(Malaysia)Female</option>
+                  <option value="Malay(Malaysia)M">Malay(Malaysia)Male</option>
+                  <option value="Malayalam(India)F">Malayalam(India)Female</option>
+                  <option value="Malayalam(India)M">Malayalam(India)Male</option>
+                  <option value="Marathi(India)F">Marathi(India)Female</option>
+                  <option value="Marathi(India)M">Marathi(India)Male</option>
+                  <option value="Norwegian(Norway)F">Norwegian(Norway)Female</option>
+                  <option value="Norwegian(Norway)M">Norwegian(Norway)Male</option>
+                  <option value="Polish(Poland)F">Polish(Poland)Female</option>
+                  <option value="Polish(Poland)M">Polish(Poland)Male</option>
+                  <option value="Punjabi(India)F">Punjabi(India)Female</option>
+                  <option value="Punjabi(India)M">Punjabi(India)Male</option>
+                  <option value="Romanian(Romania)F">Romanian(Romania)Female</option>
+                  <option value="Russian(Russia)F">Russian(Russia)Female</option>
+                  <option value="Russian(Russia)M">Russian(Russia)Male</option>
+                  <option value="Serbian(Cyrillic)F">Serbian(Cyrillic)Female</option>
+                  <option value="Slovak(Slovakia)F">Slovak(Slovakia)Female</option>
+                  <option value="Spanish(Spain)F">Spanish(Spain)Female</option>
+                  <option value="Spanish(Spain)M">Spanish(Spain)Male</option>
+                  <option value="Spanish(US)F">Spanish(US)Female</option>
+                  <option value="Spanish(US)M">Spanish(US)Male</option>
+                  <option value="Swedish(Sweden)F">Swedish(Sweden)Female</option>
+                  <option value="Swedish(Sweden)M">Swedish(Sweden)Male</option>
+                  <option value="Tamil(India)F">Tamil(India)Female</option>
+                  <option value="Tamil(India)M">Tamil(India)Male</option>
+                  <option value="Telugu(India)F">Telugu(India)Female</option>
+                  <option value="Telugu(India)M">Telugu(India)Male</option>
+                  <option value="Thai(Thailand)F">Thai(Thailand)Female</option>
+                  <option value="Turkish(Turkey)F">Turkish(Turkey)Female</option>
+                  <option value="Turkish(Turkey)M">Turkish(Turkey)Male</option>
+                  <option value="Ukrainian(Ukraine)F">Ukrainian(Ukraine)Female</option>
+                  <option value="Vietnamese(Vietnam)F">Vietnamese(Vietnam)Female</option>
+                  <option value="Vietnamese(Vietnam)M">Vietnamese(Vietnam)Male</option>
                 </select>
-                <button id="Translate">Translate</button>
-                
+              </div>
             </div>
+            
+
+            <button class="translate" id="Translate">Translate</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module"  src="js/main__page.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script type="module" src="js/main__page.js"></script>
     <script>
           const from = document.getElementById("sourceLanguage") ;
           const to = document.getElementById("targetLanguage");
@@ -564,13 +580,32 @@
               const audioData = await response.arrayBuffer();
               const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
               const audioBlobUrl = URL.createObjectURL(audioBlob);
-
+              const videoElement = document.getElementById('videoPlayer');
               const audioElement = document.getElementById('audioPlayer');
               audioElement.src = audioBlobUrl;
+              Promise.all([
+                new Promise(resolve => videoElement.addEventListener('loadedmetadata', resolve)),
+                new Promise(resolve => audioElement.addEventListener('loadedmetadata', resolve))
+                ]).then(() => {
+                // Get durations of video and audio
+                const videoDuration = videoElement.duration;
+                const audioDuration = audioElement.duration;
+
+                // Calculate the ratio of durations
+                const rate = videoDuration / audioDuration;
+
+                // Set the playback rate of the audio element
+                audioElement.playbackRate = rate;
+
+                // Optionally, play both video and audio
+                videoElement.play();
+                audioElement.play();
+              });
             } catch (error) {
               console.error('Ошибка при отправке запроса:', error);
             }
           });
     </script>
-  </body>
+</body>
+
 </html>
