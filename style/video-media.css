@@ -1,0 +1,69 @@
+@media (max-width:800px) {
+    .dropArea {
+        width: 90%;
+        height: 40%;
+    }
+    .selects{
+        display: block;
+        text-align: center;
+        
+    }
+    .from-text {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .video-player {
+        width: 90%;
+        height: auto;   
+    }
+}
+@media (max-width:480px) {
+    .dropArea {
+        height: 30%;
+    }
+    .dropArea__text{
+        font-size: 11px;
+    }
+    .buttons {
+        display: block;
+        text-align: center;
+    }
+    .upload__video{
+        display: block;
+        margin: 0 auto 20px;
+    }
+    .play{
+        margin: 0;
+    }
+}
+@media (max-width:360px) {
+    .audioPlayer {
+        max-width: 240px;
+    }
+    .dropArea__text {
+        font-size: 8px;
+    }
+    .dropArea {
+        height: 20%;
+    }
+    .from-text{
+        max-width:90%;
+        margin-right: 0;
+        padding: 0;
+        padding-top: 10px;
+    }
+    .to-text{
+        max-width:90%;
+        padding: 0;
+        margin-right: 0;
+        padding-top: 10px;
+
+    }
+    .select__language {
+        max-width: 100%;
+    }
+    .from__text{
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}

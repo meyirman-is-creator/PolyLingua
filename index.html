@@ -74,15 +74,21 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a id="toProfile" class="nav-link" aria-current="page" href="#">
+                      <a id="toProfile" class="nav-link" aria-current="page" href="./profile.html">
                         <i class="fi fi-rr-user"></i>
                         <span>Profile</span>
                       </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="#">
-                        <i class="fi fi-sr-graduation-cap"></i>
-                        <span>Course</span>
+                        <i class="fi fi-sr-film"></i>
+                        <span>Video</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a id="toLibrary" class="nav-link" href="./library.html">
+                        <i class="fi fi-rr-book-alt"></i>
+                        <span>Library</span>
                       </a>
                     </li>
 
@@ -116,11 +122,19 @@
               aria-controls="offcanvasNavbar">
               <i class="fi fi-rr-list"></i>
             </button>
+
             <div class="header__btns">
               <button type="button" id="user-btn-icon" class="btn btn-primary user-btn">
                 <i class="fi fi-sr-user"></i>
               </button>
-
+              <form class="input__video-link" id="youtubeForm">
+                <input class="youtube__input" type="text" id="youtubeLink" placeholder="Enter YouTube link">
+                <button class="youtube-video__find" type="submit">
+                  <i id="find-icon" class="fi fi-rr-search"></i>
+                  <div id="loader" class="loader" style="display: none;"></div>
+                  <span id="loader-x" class="loader-x" style="display: none;">x</span>
+                </button>
+              </form>
             </div>
           </header>
           <div class="main-page__body">
@@ -140,164 +154,40 @@
 
             <body>
               <script> window.videoUri = '';</script>
-              <div id="dropArea" class="dropArea ">
-                <p class="dropArea__text">Drag & Drop video file here or to upload</p>
-                <input type="file" class="fileInput-in" id="fileInput">
+              <div class="video-blog">
+                <!--add class video-active-->
+                <div id="dropArea" class="dropArea">
+                  <p class="dropArea__text">Drag & Drop video file here or to upload</p>
+                  <input type="file" class="fileInput-in" id="fileInput">
+                </div>
+                <video id="videoPlayer" src=""
+                  class="video-player" style="display: none;" controls>
+                  <source id="videoSource" type="video/mp4" >
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <video id="videoPlayer" class="video-palyer" controls style="display: none;">
-                <source id="videoSource" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+
               <div class="buttons">
-                <button class="upload__video" onclick="uploadVideo()">Upload Video</button>
-                <!-- <video id="videoPlayer" controls> -->
-                <!-- <source src="" type="video/mp4"> -->
-                <!-- Your browser does not support the video tag. -->
-                <!-- </video> -->
+                <button class="upload__video" id="videoUpload">Upload Video</button>
+                <input class="upload__video" type="file" id="videoInput" accept="video/mp4" style="display: none;">
                 <button class="play" onclick="playAll()">Play</button>
                 <button class="pause" onclick="pauseAll()">Pause</button>
-                
+
               </div>
-              <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
 
 
-              <audio class="audioPlayer" id="audioPlayer" controls>
+              <audio class="audioPlayer" id="audioPlayer" style="display: none;" controls>
                 <source src="" type="audio/mpeg">
                 Your browser does not support the audio tag.
               </audio>
-              <form id="youtubeForm">
-                <input type="text" id="youtubeLink" placeholder="Enter YouTube link">
-                <button type="submit">Submit</button>
-              </form>
+              <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+
+              <script type="module" src="./js/main__page.js"></script>
               <script>
-                const dropArea = document.getElementById('dropArea');
-                const fileInput = document.getElementById('fileInput');
-                const videoSource = document.getElementById('videoSource');
-
-                // Prevent default behavior to enable drag and drop
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, preventDefaults, false);
-                  document.body.addEventListener(eventName, preventDefaults, false);
-                });
-
-                // Highlight drop area when file dragged over
-                ['dragenter', 'dragover'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, highlight, false);
-                });
-
-                ['dragleave', 'drop'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, unhighlight, false);
-                });
-
-                // Handle dropped files
-                dropArea.addEventListener('drop', handleDrop, false);
-
-                // Handle file input change
-                fileInput.addEventListener('change', handleFiles, false);
-
-                function preventDefaults(e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }
-
-                function highlight() {
-                  dropArea.classList.add('highlight');
-                }
-
-                function unhighlight() {
-                  dropArea.classList.remove('highlight');
-                }
-
-                function handleDrop(e) {
-                  const dt = e.dataTransfer;
-                  const files = dt.files;
-                  handleFiles(files);
-                }
-                async function uploadVideo(file) {
-                  if (!file) {
-                    alert('Please select a video file.');
-                    return;
-                  }
-
-                  const formData = new FormData();
-                  formData.append('video', file);
-
-                  try {
-                    const response = await fetch('http://127.0.0.1:5501/upload-video', {
-                      method: 'POST',
-                      body: formData
-                    });
-                    const data = await response.json();
-                    const videoUrl = data.videoUrl;
-                    window.videoUri = data.videoUri;
-                    // Set the video src to the uploaded video URL
-                    videoPlayer.src = videoUrl;
-                    // Show the video player
-                    videoPlayer.style.display = 'block';
-                  } catch (error) {
-                    console.error('Error uploading video:', error);
-                  }
-                }
-                function handleFiles(files) {
-                  if (files.length > 0) {
-                    const file = files[0];
-                    // Display video player and set source
-                    uploadVideo(file);
-                    // videoPlayer.style.display = 'block';
-                    // videoSource.src = URL.createObjectURL(file);
-                    // videoPlayer.load();
-                  }
-                }
-                document.getElementById('youtubeForm').addEventListener('submit', async (event) => {
-                      event.preventDefault();
-                      const youtubeLink = document.getElementById('youtubeLink').value;
-
-                      try {
-                          const response = await fetch('http://127.0.0.1:5501/upload-yt-video', {
-                              method: 'POST',
-                              headers: {
-                                  'Content-Type': 'application/json'
-                              },
-                              body: JSON.stringify({ youtubeLink })
-                          });
-                          const data = await response.json();
-                          const videoUrl = data.videoUrl;
-                          window.videoUri = data.videoUri;
-                          // Set the video src to the uploaded video URL
-                          videoPlayer.src = videoUrl;
-                          // Show the video player
-                          videoPlayer.style.display = 'block';
-                      } catch (error) {
-                        console.error('Error uploading video:', error);
-                      }
-                  });
+                
+                
               </script>
               <script>
-                var audioPlayer = document.getElementById('audioPlayer');
-                var videoPlayer = document.getElementById('videoPlayer');
-
-                function playAll() {
-                  videoPlayer.play();
-                  audioPlayer.play();
-                }
-
-                function pauseAll() {
-                  videoPlayer.pause();
-                  audioPlayer.pause();
-                }
-                function syncAudioWithVideoTime() {
-                // Get the current time scrolled in the video
-                    const videoTimeScrolled = (videoPlayer.currentTime / videoPlayer.duration) * videoPlayer.scrollWidth;
-                
-                    // Map video time scrolled to audio time (assuming audio duration is equal to video duration)
-                    const audioTime = (videoTimeScrolled / videoPlayer.scrollWidth) * audioPlayer.duration;
-                
-                    // Set audio playback position
-                    audioPlayer.currentTime = audioTime;
-                }
-                
-                // Add scroll event listener to sync audio with video time scrolled
-                videoPlayer.addEventListener('timeupdate', syncAudioWithVideoTime);
                 
               </script>
             </body>
@@ -448,7 +338,7 @@
                   <option value="Xhosa(South Africa)">Xhosa(South Africa)</option>
                   <option value="Yoruba(Nigeria)">Yoruba(Nigeria)</option>
                   <option value="Zulu(South Africa)">Zulu(South Africa)</option>
-  
+
                 </select>
               </div>
               <div class="to-text">
@@ -542,9 +432,13 @@
                 </select>
               </div>
             </div>
-            
 
-            <button class="translate" id="Translate">Translate</button>
+
+            <button class="translate" id="Translate">
+              <span>Translate</span>
+              <div id="loader" class="loader" ></div>
+              <span id="loader-x" class="loader-x" style="display: none;">x</span>
+            </button>
           </div>
         </div>
       </div>
@@ -555,57 +449,99 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script type="module" src="js/main__page.js"></script>
-    <script>
-          const from = document.getElementById("sourceLanguage") ;
-          const to = document.getElementById("targetLanguage");
-          
-          document.getElementById('Translate').addEventListener('click', async () => {
-            const optionFrom = from.value ;
-            const optionTo = to.value;
-            const path = window.videoUri;
-            try {
-            // Данные для отправки
-              const dataToSend = { optionTo: optionTo, optionFrom: optionFrom, path: path };
+  <script>
+    let controller;
+    const from = document.getElementById("sourceLanguage");
+    const to = document.getElementById("targetLanguage");
 
-              // Отправляем POST запрос на сервер
-              const response = await fetch('http://127.0.0.1:5501/api/data', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataToSend)
-              });
+    document.getElementById('Translate').addEventListener('click', async () => {
+      const optionFrom = from.value;
+      const optionTo = to.value;
+      const path = window.videoUri;
+      if (controller) {
+        controller.abort();
+      }
+      
+      // Create a new controller for the fetch request
+      controller = new AbortController();
+      const signal = controller.signal;
+      try {
+        const dataToSend = { optionTo: optionTo, optionFrom: optionFrom, path: path };
+        const response = await fetch('https://translate-c3b6phuuwq-uc.a.run.app/api/data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend),
+          signal: signal,
+        });
 
-              // Получаем ответ в формате текста
-              const audioData = await response.arrayBuffer();
-              const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
-              const audioBlobUrl = URL.createObjectURL(audioBlob);
-              const videoElement = document.getElementById('videoPlayer');
-              const audioElement = document.getElementById('audioPlayer');
-              audioElement.src = audioBlobUrl;
-              Promise.all([
-                new Promise(resolve => videoElement.addEventListener('loadedmetadata', resolve)),
-                new Promise(resolve => audioElement.addEventListener('loadedmetadata', resolve))
-                ]).then(() => {
-                // Get durations of video and audio
-                const videoDuration = videoElement.duration;
-                const audioDuration = audioElement.duration;
+        const audioData = await response.arrayBuffer();
+        const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
+        const audioBlobUrl = URL.createObjectURL(audioBlob);
+        const videoElement = document.getElementById('videoPlayer');
+        const audioElement = document.getElementById('audioPlayer');
+        audioElement.src = audioBlobUrl;
+        document.addEventListener("DOMContentLoaded", function() {
+                var video = document.getElementById('videoPlayer');
+                var audio = document.getElementById('audioPlayer');
+                var isSeeking = false; 
 
-                // Calculate the ratio of durations
-                const rate = videoDuration / audioDuration;
+                function synchronizePlayback() {
+                    var durationRatio = video.duration / audio.duration;
+                    var playbackRate = 1; 
 
-                // Set the playback rate of the audio element
-                audioElement.playbackRate = rate;
+                    if (durationRatio !== 1) {
+                        playbackRate = durationRatio;
+                        audio.playbackRate = playbackRate;
+                    }
+                    video.addEventListener('seeking', function() {
+                        console.log('Seeking');
+                        isSeeking = true;
+                    });
 
-                // Optionally, play both video and audio
-                videoElement.play();
+                    // Listen for user seeked
+                    video.addEventListener('seeked', function() {
+                        console.log('Seeked');
+                        isSeeking = false;
+                        audio.currentTime = video.currentTime / playbackRate;
+                    });
+                }
+
+                // Wait for metadata to be loaded for both elements
+                video.addEventListener('loadedmetadata', synchronizePlayback);
+                audio.addEventListener('loadedmetadata', synchronizePlayback);
+                video.addEventListener('play', function() {
+                    // console.log('Video started playing');
+                    audio.play();
+                });
+
+                // Event listener for when the video is paused
+                video.addEventListener('pause', function() {
+                    // console.log('Video paused');
+                    audio.pause();
+                });
                 audioElement.play();
-              });
-            } catch (error) {
-              console.error('Ошибка при отправке запроса:', error);
-            }
-          });
-    </script>
+                videoElement.play();
+
+            });
+      } catch (error) {
+        console.error('Ошибка при отправке запроса:', error);
+      }
+    });
+    const slider = document.getElementById('slider')
+    slider.addEventListener("input", function() {
+      audio.volume = slider.value / 100;
+    });
+
+    document.getElementById('buttonX').addEventListener('click', () => {
+    // Check if there's an ongoing fetch request and abort it
+        if (controller) {
+            controller.abort();
+            console.log('Request aborted by the user');
+        }
+    });
+  </script>
 </body>
 
 </html>

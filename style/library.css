@@ -1,0 +1,36 @@
+.main-page__body{
+    padding: 0;
+}
+.library {
+    padding: 20px 0;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    overflow: auto;
+}
+.library__item{
+    margin-bottom: 20px;
+}
+.video-thumbnail{
+    max-width: 250px;
+    height: auto;
+}
+.video-info{
+    margin-left: 20px;
+}
+.library__item{
+    display: flex;
+}
+.video-info{
+    padding-top: 10px;  
+}
+.video-title{
+    color: white;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.video-duration{
+    color: white;
+}
