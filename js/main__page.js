@@ -51,7 +51,10 @@ const db = getFirestore(app);
 const singOut = document.getElementById('sign-out');
 let obj;
 document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('videoPlayer');
     let user = localStorage.getItem('user');
+    let videoUrl = localStorage.getItem('videoUrl');
+    let videoUri = localStorage.getItem("videoUri");
     obj = JSON.parse(user !== null ? user : '');
     if (obj) {
         singOut.classList.remove('off');
@@ -69,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
         openLogin.classList.remove('off');
         openLoginIn.classList.remove('off');
     }
+    if(videoUrl){
+        video.src = videoUrl;
+        window.videoUri = videoUri;
+    }
 });
 userBtnIcon.addEventListener('click', (e) => {
     if (obj) {
@@ -80,6 +87,10 @@ userBtnIcon.addEventListener('click', (e) => {
         myModal.show();
     }
 })
+function setVideoUrl(url,uri) {
+    localStorage.setItem('videoUrl', url);
+    localStorage.setItem('videoUri',uri);
+}
 const colRef = collection(db, "Users");
 async function updateUserProfile(uid, obj, imgUrl) {
     await setDoc(doc(colRef, uid), {
@@ -280,7 +291,7 @@ async function uploadVideo(file) {
         const videoUrl = data.videoUrl;
         window.videoUri = data.videoUri;
         // Set the video src to the uploaded video URL
-        
+        setVideoUrl(videoUrl,data.videoUri);
 
         videoPlayer.src = videoUrl;
         // Show the video player
@@ -345,6 +356,8 @@ document.getElementById('youtubeForm').addEventListener('submit', async (event) 
 
         const videoUrl = data.videoUrl;
         window.videoUri = data.videoUri;
+
+        setVideoUrl(videoUrl,data.videoUri);
 
         // Set the video src to the uploaded video URL
         
