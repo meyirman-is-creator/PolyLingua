@@ -45,7 +45,10 @@ let toEmailModal = document.getElementById('toEmailModal');
 let toEmailModalIcon = toEmailModal.previousElementSibling;
 let createPasswordModal = document.getElementById('createPasswordModal');
 let createPasswordModalIcon = createPasswordModal.previousElementSibling;
+let toLibrary = document.getElementById('toLibrary');
+let videoPlayer = document.getElementById('videoPlayer');
 let toSignInModal = document.getElementById('to-sign-in-modal');
+let imgURL;
 const myModal = new bootstrap.Modal(document.getElementById("myModal"), {
     keyboard: false,
 });
@@ -64,6 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
         openLogin.classList.add('off');
         openLoginIn.classList.add('off');
         fetchUserDataDownload(obj.uid);
+
+        if (localStorage.getItem('PL-active') !== null) {
+            videoPlayer.src = localStorage.getItem('PL-active');
+        }
     } else {
         singOut.classList.add('off');
         signOutIn.classList.add('off');
@@ -71,17 +78,49 @@ document.addEventListener('DOMContentLoaded', function () {
         openLoginIn.classList.remove('off');
     }
 });
-userBtnIcon.addEventListener('click', () => {
+userBtnIcon.addEventListener('click', (e) => {
+    if (obj) {
+        let video = {
+            url: 'https://youtu.be/c--evcMMqlg?si=x6eF1LjoYKjEjXe6',
+            title: 'Нет успешного успеха, только ЕБШ Евгений Черняк',
+        }
+        setVideo(video);
+        window.open('./profile.html', '_self');
+
+    } else {
+        e.preventDefault();
+        myModal.show();
+    }
+})
+async function updateUserProfile(uid, obj, imgUrl) {
+    await setDoc(doc(colRef, uid), {
+        uid: uid,
+        firstName: obj.firstName,
+        lastName: obj.lastName,
+        age: obj.age,
+        gender: obj.gender,
+        email: obj.email,
+        password: obj.createPassword,
+        profilePicture: imgUrl,
+        library: obj.library
+    });
+    localStorage.setItem('user', JSON.stringify(obj));
+    window.open('index.html', '_self');
+}
+toLibrary.addEventListener('click', (e) => {
     if (obj) {
         window.open('./profile.html', '_self');
     } else {
         myModal.show();
+        e.preventDefault();
+
     }
-})
-toProfile.addEventListener('click', () => {
+});
+toProfile.addEventListener('click', (e) => {
     if (obj) {
         window.open('./profile.html', '_self');
     } else {
+        e.preventDefault();
         myModal.show();
     }
 });
@@ -105,7 +144,7 @@ toRegistrationPage.addEventListener('click', () => {
     window.open('./registration_page.html', '_self')
 });
 singOut.addEventListener('click', () => {
-    localStorage.setIte ('user', '')
+    localStorage.setItem('user', '')
     location.reload();
 })
 openLogin.addEventListener('click', () => {
@@ -149,6 +188,7 @@ async function fetchUserData(uid) {
                 createPassword: docSnap.data().password,
                 confirmPassword: docSnap.data().password,
                 uid: docSnap.data().uid,
+                library: docSnap.data().library,
             };
             userBtnIcon.style.backgroundImage = `url('${docSnap.data().profilePicture}')`;
             userBtnIcon.classList.add('delete');
@@ -168,6 +208,7 @@ async function fetchUserDataDownload(uid) {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             userBtnIcon.style.backgroundImage = `url('${docSnap.data().profilePicture}')`;
+            imgURL = docSnap.data().profilePicture;
             userBtnIcon.classList.add('delete');
             localStorage.setItem('user', JSON.stringify(obj));
         } else {
@@ -177,3 +218,152 @@ async function fetchUserDataDownload(uid) {
         console.error("Ошибка при получении данных пользователя: ", error);
     }
 }
+const dropArea = document.getElementById('dropArea');
+const fileInput = document.getElementById('fileInput');
+const videoSource = document.getElementById('videoSource');
+
+// Prevent default behavior to enable drag and drop
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false);
+    document.body.addEventListener(eventName, preventDefaults, false);
+});
+
+// Highlight drop area when file dragged over
+['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, highlight, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, unhighlight, false);
+});
+
+// Handle dropped files
+dropArea.addEventListener('drop', handleDrop, false);
+
+// Handle file input change
+fileInput.addEventListener('change', handleFiles, false);
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+function highlight() {
+    dropArea.classList.add('highlight');
+}
+
+function unhighlight() {
+    dropArea.classList.remove('highlight');
+}
+
+function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    handleFiles(files);
+}
+async function uploadVideo(file) {
+    if (!file) {
+        alert('Please select a video file.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('video', file);
+
+    try {
+        const response = await fetch('http://127.0.0.1:5501/upload-video', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        video = {
+            url: data.videoUrl,
+            name: data.name,
+        }
+        const videoUrl = data.videoUrl;
+        window.videoUri = data.videoUri;
+        // Set the video src to the uploaded video URL
+        videoPlayer.src = videoUrl;
+        // Show the video player
+        videoPlayer.style.display = 'block';
+        const video = {
+            url: data.videoUrl,
+            name: data.name,
+            duration: videoPlayer.duration
+        }
+    } catch (error) {
+        console.error('Error uploading video:', error);
+    }
+}
+function handleFiles(files) {
+    if (files.length > 0) {
+        const file = files[0];
+        // Display video player and set source
+        uploadVideo(file);
+        // videoPlayer.style.display = 'block';
+        // videoSource.src = URL.createObjectURL(file);
+        // videoPlayer.load();
+    }
+}
+document.getElementById('youtubeForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const youtubeLink = document.getElementById('youtubeLink').value;
+
+    try {
+        const response = await fetch('http://127.0.0.1:5501/upload-yt-video', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ youtubeLink })
+        });
+        const data = await response.json();
+
+        const videoUrl = data.videoUrl;
+        window.videoUri = data.videoUri;
+
+        // Set the video src to the uploaded video URL
+        videoPlayer.src = videoUrl;
+        // Show the video player
+        videoPlayer.style.display = 'block';
+
+        // const video ={
+        //   url: data.videoUrl,
+        //   name: data.name,
+        // }
+    } catch (error) {
+        console.error('Error uploading video:', error);
+    }
+});
+async function setVideo(video) {
+    if (localStorage.getItem('user') !== null) {
+        let user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
+        user.library.push(video);
+        localStorage.setItem('user', user);
+        // await updateUserProfile(user.uid, user, imgURL);
+    }
+};
+var audioPlayer = document.getElementById('audioPlayer');
+
+function playAll() {
+    videoPlayer.play();
+    audioPlayer.play();
+}
+
+function pauseAll() {
+    videoPlayer.pause();
+    audioPlayer.pause();
+}
+function syncAudioWithVideoTime() {
+    // Get the current time scrolled in the video
+    const videoTimeScrolled = (videoPlayer.currentTime / videoPlayer.duration) * videoPlayer.scrollWidth;
+
+    // Map video time scrolled to audio time (assuming audio duration is equal to video duration)
+    const audioTime = (videoTimeScrolled / videoPlayer.scrollWidth) * audioPlayer.duration;
+
+    // Set audio playback position
+    audioPlayer.currentTime = audioTime;
+}
+
+// Add scroll event listener to sync audio with video time scrolled
+videoPlayer.addEventListener('timeupdate', syncAudioWithVideoTime);

@@ -6,9 +6,15 @@
     .selects{
         display: block;
         text-align: center;
+        
     }
     .from-text {
+        margin: 0;
         margin-bottom: 20px;
+    }
+    .video-player {
+        width: 90%;
+        height: auto;   
     }
 }
 @media (max-width:480px) {

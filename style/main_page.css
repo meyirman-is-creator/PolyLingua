@@ -332,3 +332,38 @@ label {
     display: none;
 }
 
+.header__btns{
+    display: flex;
+    align-items: center;
+}
+.input__video-link{
+    margin-left: 15px;
+    display: flex;
+}
+.youtube__input{
+    background-color: transparent;
+    border: 1px solid #8A8AC3;
+    padding: 0px 15px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+}
+.youtube__input::placeholder{
+    color: #8A8AC3;
+}
+.youtube-video__find{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    background-color:#A922FD;
+}
+.youtube-video__find:disabled{
+    background-color: #8A8AC3;
+    border: none;
+}

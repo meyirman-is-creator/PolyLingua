@@ -43,6 +43,12 @@
         display: none;
     }
 }
+
+@media (max-width:460px){
+    .youtube__input{
+        width: 85%;
+    }
+}
 @media(max-width: 380px){
     .email .fi-rr-envelope, .create__password .fi-rr-lock {
         left: 35px;

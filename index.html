@@ -74,15 +74,21 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a id="toProfile" class="nav-link" aria-current="page" href="#">
+                      <a id="toProfile" class="nav-link" aria-current="page" href="./profile.html">
                         <i class="fi fi-rr-user"></i>
                         <span>Profile</span>
                       </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active" href="#">
-                        <i class="fi fi-sr-graduation-cap"></i>
-                        <span>Course</span>
+                        <i class="fi fi-sr-film"></i>
+                        <span>Video</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a id="toLibrary" class="nav-link" href="./library.html">
+                        <i class="fi fi-rr-book-alt"></i>
+                        <span>Library</span>
                       </a>
                     </li>
 
@@ -116,11 +122,15 @@
               aria-controls="offcanvasNavbar">
               <i class="fi fi-rr-list"></i>
             </button>
+
             <div class="header__btns">
               <button type="button" id="user-btn-icon" class="btn btn-primary user-btn">
                 <i class="fi fi-sr-user"></i>
               </button>
-
+              <form class="input__video-link" id="youtubeForm">
+                <input class="youtube__input" type="text" id="youtubeLink" placeholder="Enter YouTube link">
+                <button class="youtube-video__find" type="submit"><i class="fi fi-rr-search"></i></button>
+              </form>
             </div>
           </header>
           <div class="main-page__body">
@@ -140,14 +150,19 @@
 
             <body>
               <script> window.videoUri = '';</script>
-              <div id="dropArea" class="dropArea ">
-                <p class="dropArea__text">Drag & Drop video file here or to upload</p>
-                <input type="file" class="fileInput-in" id="fileInput">
+              <div class="video-blog">
+                <!--add class video-active-->
+                <div id="dropArea" class="dropArea">
+                  <p class="dropArea__text">Drag & Drop video file here or to upload</p>
+                  <input type="file" class="fileInput-in" id="fileInput">
+                </div>
+                <video id="videoPlayer" src=""
+                  class="video-player" controls>
+                  <source id="videoSource" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <video id="videoPlayer" class="video-palyer" controls style="display: none;">
-                <source id="videoSource" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+
               <div class="buttons">
                 <button class="upload__video" onclick="uploadVideo()">Upload Video</button>
                 <!-- <video id="videoPlayer" controls> -->
@@ -156,7 +171,7 @@
                 <!-- </video> -->
                 <button class="play" onclick="playAll()">Play</button>
                 <button class="pause" onclick="pauseAll()">Pause</button>
-                
+
               </div>
               <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
 
@@ -166,110 +181,13 @@
                 Your browser does not support the audio tag.
               </audio>
 
+              <script type="module" src="./js/main__page.js"></script>
               <script>
-                const dropArea = document.getElementById('dropArea');
-                const fileInput = document.getElementById('fileInput');
-                const videoSource = document.getElementById('videoSource');
-
-                // Prevent default behavior to enable drag and drop
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, preventDefaults, false);
-                  document.body.addEventListener(eventName, preventDefaults, false);
-                });
-
-                // Highlight drop area when file dragged over
-                ['dragenter', 'dragover'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, highlight, false);
-                });
-
-                ['dragleave', 'drop'].forEach(eventName => {
-                  dropArea.addEventListener(eventName, unhighlight, false);
-                });
-
-                // Handle dropped files
-                dropArea.addEventListener('drop', handleDrop, false);
-
-                // Handle file input change
-                fileInput.addEventListener('change', handleFiles, false);
-
-                function preventDefaults(e) {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }
-
-                function highlight() {
-                  dropArea.classList.add('highlight');
-                }
-
-                function unhighlight() {
-                  dropArea.classList.remove('highlight');
-                }
-
-                function handleDrop(e) {
-                  const dt = e.dataTransfer;
-                  const files = dt.files;
-                  handleFiles(files);
-                }
-                async function uploadVideo(file) {
-                  if (!file) {
-                    alert('Please select a video file.');
-                    return;
-                  }
-
-                  const formData = new FormData();
-                  formData.append('video', file);
-
-                  try {
-                    const response = await fetch('http://127.0.0.1:5501/upload-video', {
-                      method: 'POST',
-                      body: formData
-                    });
-                    const data = await response.json();
-                    const videoUrl = data.videoUrl;
-                    window.videoUri = data.videoUri;
-                    // Set the video src to the uploaded video URL
-                    videoPlayer.src = videoUrl;
-                    // Show the video player
-                    videoPlayer.style.display = 'block';
-                  } catch (error) {
-                    console.error('Error uploading video:', error);
-                  }
-                }
-                function handleFiles(files) {
-                  if (files.length > 0) {
-                    const file = files[0];
-                    // Display video player and set source
-                    uploadVideo(file);
-                    // videoPlayer.style.display = 'block';
-                    // videoSource.src = URL.createObjectURL(file);
-                    // videoPlayer.load();
-                  }
-                }
-
+                
+                
               </script>
               <script>
-                var audioPlayer = document.getElementById('audioPlayer');
-                var videoPlayer = document.getElementById('videoPlayer');
-
-                function playAll() {
-                  videoPlayer.play();
-                  audioPlayer.play();
-                }
-
-                function pauseAll() {
-                  videoPlayer.pause();
-                  audioPlayer.pause();
-                }
-                videoPlayer.addEventListener('timeupdate', syncPlayback);
-
-                function syncPlayback() {
-                  const videoTime = videoPlayer.currentTime;
-                  const audioTime = audioPlayer.currentTime;
-
-                  if (!isNaN(videoTime)) {
-                    audioPlayer.currentTime = videoTime;
-                  }
-                }
+                
               </script>
             </body>
 
@@ -419,7 +337,7 @@
                   <option value="Xhosa(South Africa)">Xhosa(South Africa)</option>
                   <option value="Yoruba(Nigeria)">Yoruba(Nigeria)</option>
                   <option value="Zulu(South Africa)">Zulu(South Africa)</option>
-  
+
                 </select>
               </div>
               <div class="to-text">
@@ -513,7 +431,7 @@
                 </select>
               </div>
             </div>
-            
+
 
             <button class="translate" id="Translate">Translate</button>
           </div>
@@ -526,6 +444,53 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script type="module" src="js/main__page.js"></script>
+  <script>
+    const from = document.getElementById("sourceLanguage");
+    const to = document.getElementById("targetLanguage");
+
+    document.getElementById('Translate').addEventListener('click', async () => {
+      const optionFrom = from.value;
+      const optionTo = to.value;
+      const path = window.videoUri;
+      try {
+        const dataToSend = { optionTo: optionTo, optionFrom: optionFrom, path: path };
+        const response = await fetch('http://127.0.0.1:5501/api/data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dataToSend)
+        });
+
+        const audioData = await response.arrayBuffer();
+        const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
+        const audioBlobUrl = URL.createObjectURL(audioBlob);
+        const videoElement = document.getElementById('videoPlayer');
+        const audioElement = document.getElementById('audioPlayer');
+        audioElement.src = audioBlobUrl;
+        Promise.all([
+          new Promise(resolve => videoElement.addEventListener('loadedmetadata', resolve)),
+          new Promise(resolve => audioElement.addEventListener('loadedmetadata', resolve))
+        ]).then(() => {
+          // Get durations of video and audio
+          const videoDuration = videoElement.duration;
+          const audioDuration = audioElement.duration;
+
+          // Calculate the ratio of durations
+          const rate = videoDuration / audioDuration;
+
+          // Set the playback rate of the audio element
+          audioElement.playbackRate = rate;
+
+          // Optionally, play both video and audio
+          videoElement.play();
+          audioElement.play();
+        });
+      } catch (error) {
+        console.error('Ошибка при отправке запроса:', error);
+      }
+    });
+  </script>
 </body>
 
 </html>
