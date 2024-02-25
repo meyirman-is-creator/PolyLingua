@@ -34,3 +34,8 @@ Generate yourself API keys for Firebase project, YouTube API and Google Cloud SD
 
 ## Access
 ### You can find our project at https://polylingua-94f50.web.app
+
+## Contact us
+### sultan.mukashev@gmail.com
+### sarsenbaymeyirman@gmail.com
+### prerequit@gmail.com
