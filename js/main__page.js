@@ -92,6 +92,7 @@ userBtnIcon.addEventListener('click', (e) => {
         myModal.show();
     }
 })
+const colRef = collection(db, "Users");
 async function updateUserProfile(uid, obj, imgUrl) {
     await setDoc(doc(colRef, uid), {
         uid: uid,
@@ -334,13 +335,13 @@ document.getElementById('youtubeForm').addEventListener('submit', async (event) 
         console.error('Error uploading video:', error);
     }
 });
-async function setVideo(video) {
+function setVideo(video) {
     if (localStorage.getItem('user') !== null) {
         let user = JSON.parse(localStorage.getItem('user'));
         console.log(user);
         user.library.push(video);
         localStorage.setItem('user', user);
-        // await updateUserProfile(user.uid, user, imgURL);
+        updateUserProfile(user.uid, user, imgURL);
     }
 };
 var audioPlayer = document.getElementById('audioPlayer');
