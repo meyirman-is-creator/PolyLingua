@@ -4,6 +4,14 @@
 
     }
 
+    .main-page__inner {
+        max-height: 800px;
+        height: auto;
+    }
+    .main-page__body{
+        height: 100%;
+    }
+
     .ishinde-login {
         position: relative;
     }
@@ -39,18 +47,22 @@
     .btn.btn-outline-primary.ishinde.off {
         display: none;
     }
-    .btn.btn-outline-primary.ishinde.ishinde-login.off{
+
+    .btn.btn-outline-primary.ishinde.ishinde-login.off {
         display: none;
     }
 }
 
-@media (max-width:460px){
-    .youtube__input{
+@media (max-width:460px) {
+    .youtube__input {
         width: 85%;
     }
 }
-@media(max-width: 380px){
-    .email .fi-rr-envelope, .create__password .fi-rr-lock {
+
+@media(max-width: 380px) {
+
+    .email .fi-rr-envelope,
+    .create__password .fi-rr-lock {
         left: 35px;
     }
 }

@@ -8,8 +8,12 @@
     height: 100%;
     overflow: auto;
 }
-.library__item{
+.library__item {
+    display: flex;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid #8A8AC3;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .video-thumbnail{
     max-width: 250px;
@@ -17,9 +21,6 @@
 }
 .video-info{
     margin-left: 20px;
-}
-.library__item{
-    display: flex;
 }
 .video-info{
     padding-top: 10px;  

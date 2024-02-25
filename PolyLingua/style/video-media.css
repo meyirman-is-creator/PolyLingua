@@ -1,7 +1,7 @@
 @media (max-width:800px) {
     .dropArea {
         width: 90%;
-        height: 40%;
+        height: 100px;
     }
     .selects{
         display: block;
@@ -19,7 +19,7 @@
 }
 @media (max-width:480px) {
     .dropArea {
-        height: 30%;
+        height: 50px;
     }
     .dropArea__text{
         font-size: 11px;
@@ -44,7 +44,7 @@
         font-size: 8px;
     }
     .dropArea {
-        height: 20%;
+        height: 30px;
     }
     .from-text{
         max-width:90%;

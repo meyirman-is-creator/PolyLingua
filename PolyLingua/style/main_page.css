@@ -352,6 +352,7 @@ label {
     color: #8A8AC3;
 }
 .youtube-video__find{
+    position: relative;
     width: 35px;
     height: 35px;
     display: flex;
@@ -366,4 +367,51 @@ label {
 .youtube-video__find:disabled{
     background-color: #8A8AC3;
     border: none;
+}
+.loader {
+    position: absolute;
+    border: 2px solid #fff;
+    border-top: 2px solid #A922FD;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+.translate .loader{
+    right: 10px;
+    
+}
+.translate .loader-x{
+    top: 0;
+    right: 0;
+    z-index: 1;
+    
+}
+.loader:hover + .loader-x{
+    display: block !important;
+}
+.loader-x{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    color: #171730;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+}
+.loader-x:hover{
+    display: block !important;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

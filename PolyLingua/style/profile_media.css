@@ -68,6 +68,11 @@
         justify-content: center;
         display: flex;  
     }
+    .profile__inner{
+        
+        max-height: 800px;
+        height: auto;
+    }
 }
 @media (max-width: 768px) {
     .images__upload-photo__btn {
@@ -135,7 +140,7 @@
     }
     .profile__body-bottom {
         max-width: 220px;
-        display: grid;
+        display: none;
         grid-template-columns: 1fr 75px;
         margin: 0 auto;
     }

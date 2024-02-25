@@ -19,8 +19,6 @@ body {
 .dropArea.video-active{
     display: none;
 }
-
-
 #dropArea p {
     margin: 0;
 }
@@ -98,15 +96,23 @@ body {
     padding: 15px 15px 15px 10px;
 }
 .translate {
-    display: block;
+    position: relative; 
     margin-top: 20px;
     background-color: #A922FD;
     border: none;
     color: white;
-    width: 120px;
-    height: 38px;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     margin: 0 auto;
+    transition: all .5s;
+
+}
+.translate:hover{
+    background-color: #7a1bb5;
 }
 .from__text{
     margin-right: 10px;

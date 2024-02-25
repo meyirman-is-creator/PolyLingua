@@ -1,0 +1,26 @@
+@media (max-width: 770px) {
+    .video-title{
+        font-size: 15px;
+        line-height: 16px;
+    }    
+}
+@media (max-width: 550px) {
+    .library__item {
+        display: block;
+    }
+    .video-info {
+        margin-left: 0px;
+    }  
+    .video-thumbnail {
+        max-width: 90%;
+    }
+    .video-title{
+        max-width: 90%;
+    }  
+}
+@media (max-width: 350px) {
+    .video-title {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

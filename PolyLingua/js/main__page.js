@@ -12,6 +12,7 @@ import {
     collection,
     getDoc,
     setDoc,
+    updateDoc,
     addDoc,
     doc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -50,7 +51,11 @@ const db = getFirestore(app);
 const singOut = document.getElementById('sign-out');
 let obj;
 document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('videoPlayer');
     let user = localStorage.getItem('user');
+    let videoUrl = localStorage.getItem('videoUrl');
+    let videoUri = localStorage.getItem("videoUri");
+
     obj = JSON.parse(user !== null ? user : '');
     if (obj) {
         singOut.classList.remove('off');
@@ -59,8 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
         openLoginIn.classList.add('off');
         fetchUserDataDownload(obj.uid);
 
-        if (localStorage.getItem('PL-active') !== null) {
-            videoPlayer.src = localStorage.getItem('PL-active');
+        if (sessionStorage.getItem('PL-active') !== null) {
+            video.src = sessionStorage.getItem('PL-active');
+            video.style.display = 'block';
+            dropArea.style.display='none';
         }
     } else {
         singOut.classList.add('off');
@@ -68,14 +75,27 @@ document.addEventListener('DOMContentLoaded', function () {
         openLogin.classList.remove('off');
         openLoginIn.classList.remove('off');
     }
+    if(videoUrl){
+        video.src = videoUrl;
+        window.videoUri = videoUri;
+    }
+    const storedAudioBlobString = localStorage.getItem('audioBlob');
+
+    videoPlayer// Check if the audio blob exists in localStorage
+    if (storedAudioBlobString) {
+        // If the audio blob exists, parse it back to a Blob object
+        const storedAudioBlob = JSON.parse(storedAudioBlobString);
+        const audioBlobUrl = URL.createObjectURL(storedAudioBlob);
+        
+        // Set the src attribute of the audio element
+        const audioElement = document.getElementById('audioPlayer');
+        audioElement.src = audioBlobUrl;
+    }
 });
+
 userBtnIcon.addEventListener('click', (e) => {
     if (obj) {
-        let video = {
-            url: 'https://youtu.be/c--evcMMqlg?si=x6eF1LjoYKjEjXe6',
-            title: 'Нет успешного успеха, только ЕБШ Евгений Черняк',
-        }
-        setVideo(video);
+        
         window.open('./profile.html', '_self');
 
     } else {
@@ -151,21 +171,21 @@ openLoginIn.addEventListener('click', () => {
 });
 toSignInModal.addEventListener('click', () => {
     signInWithEmailAndPassword(auth, toEmailModal.value, createPasswordModal.value)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            fetchUserData(user.uid);
-            console.log(user);
-
-        })
-        .catch((error) => {
-            console.log('error.code', 'error.message')
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        })
+    .then((userCredential) => {
+        const user = userCredential.user;
+        fetchUserData(user.uid);
+        console.log(user);
+        
+    })
+    .catch((error) => {
+        console.log('error.code', 'error.message')
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    })
 })
 
 async function fetchUserData(uid) {
-
+    
     const docRef = doc(db, "Users", uid);
     try {
         const docSnap = await getDoc(docRef);
@@ -252,19 +272,28 @@ function handleDrop(e) {
     const files = dt.files;
     handleFiles(files);
 }
+let controller;
 async function uploadVideo(file) {
     if (!file) {
         alert('Please select a video file.');
         return;
     }
+    if (controller) {
+        controller.abort();
+    }
+    
+    // Create a new controller for the fetch request
+    controller = new AbortController();
+    const signal = controller.signal;
 
     const formData = new FormData();
     formData.append('video', file);
-
+    
     try {
-        const response = await fetch('http://127.0.0.1:5501/upload-video', {
+        const response = await fetch('https://translate-c3b6phuuwq-uc.a.run.app/upload-video', {
             method: 'POST',
-            body: formData
+            body: formData,
+            signal: signal,
         });
         const data = await response.json();
         video = {
@@ -274,78 +303,157 @@ async function uploadVideo(file) {
         const videoUrl = data.videoUrl;
         window.videoUri = data.videoUri;
         // Set the video src to the uploaded video URL
+        
+
         videoPlayer.src = videoUrl;
         // Show the video player
         videoPlayer.style.display = 'block';
+        document.getElementById("dropArea").style.display = 'none';
         const video = {
-            url: data.videoUrl,
+            url: videoUrl,
             name: data.name,
-            duration: videoPlayer.duration
         }
+        setVideo(video);
     } catch (error) {
         console.error('Error uploading video:', error);
     }
 }
+const uploadBtn = document.getElementById('videoUpload');
+const uploadInp = document.getElementById("videoInput")
+uploadBtn.addEventListener('click', function() {
+    fileInput.click(); 
+});
+uploadInp.addEventListener('change',(event)=>{
+    const file = event.target.files[0];
+    uploadVideo(file)
+});
 function handleFiles(files) {
     if (files.length > 0) {
         const file = files[0];
         // Display video player and set source
-        uploadVideo(file);
-        // videoPlayer.style.display = 'block';
-        // videoSource.src = URL.createObjectURL(file);
-        // videoPlayer.load();
+        uploadVideo(file);  
     }
 }
+document.getElementById('youtubeLink').addEventListener('input',()=>{
+    if(document.getElementById('youtubeLink').value.length>0){
+        document.getElementById('youtube-find-btn').removeAttribute("disabled");
+    }else{
+        document.getElementById('youtube-find-btn').setAttribute("disabled",true);
+    }
+});
 document.getElementById('youtubeForm').addEventListener('submit', async (event) => {
     event.preventDefault();
-    const youtubeLink = document.getElementById('youtubeLink').value;
+    document.getElementById("loader").style.display ='block';
+    document.getElementById("find-icon").style.display ='none';
 
+    const youtubeLink = document.getElementById('youtubeLink').value;
+    if (controller) {
+        controller.abort();
+    }
+    
+    // Create a new controller for the fetch request
+    controller = new AbortController();
+    const signal = controller.signal;
+    
     try {
-        const response = await fetch('http://127.0.0.1:5501/upload-yt-video', {
+    const response = await fetch('https://translate-c3b6phuuwq-uc.a.run.app/upload-yt-video', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ youtubeLink })
+            ,
+            signal: signal,
         });
+
         const data = await response.json();
+        
+        document.getElementById("loader").style.display ='none';
+        document.getElementById("find-icon").style.display ='block';
 
         const videoUrl = data.videoUrl;
         window.videoUri = data.videoUri;
 
         // Set the video src to the uploaded video URL
+        
+        dropArea.classList.add('video-active');
         videoPlayer.src = videoUrl;
         // Show the video player
         videoPlayer.style.display = 'block';
 
-        // const video ={
-        //   url: data.videoUrl,
-        //   name: data.name,
-        // }
+        let video = {
+            url: videoUrl,
+            title: data.name,
+        }
+        setVideo(video);
     } catch (error) {
         console.error('Error uploading video:', error);
+        if (error.name === 'AbortError') {
+            console.log('Request aborted by the user');
+        } else {
+            console.error('Error uploading video:', error);
+        }
+    }
+});
+document.getElementById('loader-x').addEventListener('click', (event) => {
+    // Check if there's an ongoing fetch request and abort it
+    event.preventDefault();
+
+
+    document.getElementById("loader").style.display ='none';
+    document.getElementById("find-icon").style.display ='block';
+    if (controller) {
+        controller.abort();
+        console.log('Request aborted by the user');
     }
 });
 function setVideo(video) {
     if (localStorage.getItem('user') !== null) {
         let user = JSON.parse(localStorage.getItem('user'));
         console.log(user);
+        
+          
         user.library.push(video);
-        localStorage.setItem('user', user);
-        updateUserProfile(user.uid, user, imgURL);
+        localStorage.setItem('user', JSON.stringify(user));
+        updateUser(user, video);
     }
+ 
 };
+
+function updateUser(user,video){
+    
+    const docRef = doc(db, "Users",user.uid);
+
+    getDoc(docRef).then(function(doc) {
+        if (doc.exists) {
+            var currentLibrary = doc.data().library || []; // If library doesn't exist yet, initialize it as an empty array
+
+            // Push the new object to the library array
+            currentLibrary.push(video);
+            // Update the document with the modified library array
+            return updateDoc(docRef,{
+                library: currentLibrary
+            });
+        } else {
+            console.log("No such document!");
+        }
+    }).then(function() {
+        console.log("Document updated successfully!");
+    }).catch(function(error) {
+        console.error("Error updating document:", error);
+    });
+}
 var audioPlayer = document.getElementById('audioPlayer');
 
-function playAll() {
+document.getElementById('playAll').addEventListener('click',()=> {
     videoPlayer.play();
     audioPlayer.play();
-}
+});
 
-function pauseAll() {
+document.getElementById('pauseAll').addEventListener('click',()=> {
     videoPlayer.pause();
     audioPlayer.pause();
-}
+})
 function syncAudioWithVideoTime() {
     // Get the current time scrolled in the video
     const videoTimeScrolled = (videoPlayer.currentTime / videoPlayer.duration) * videoPlayer.scrollWidth;

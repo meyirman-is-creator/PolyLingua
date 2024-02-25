@@ -1,4 +1,5 @@
 let libraryMain = document.getElementById('library');
+let signOut = document.getElementById('sign-out');
 document.addEventListener('DOMContentLoaded', () => {
     const obj = JSON.parse(localStorage.getItem('user'));
     if (obj.library.length > 0) {
@@ -36,8 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             libraryItemDiv.appendChild(video);
             libraryItemDiv.addEventListener('click', () => {
-                localStorage.setItem('PL-active',item.url);
-                window.open('./index.html');
+                sessionStorage.setItem('PL-active', item.url);
+                window.open('./index.html','_self');
             });
             libraryMain.appendChild(libraryItemDiv);
         });
@@ -52,3 +53,9 @@ function formatDuration(duration) {
     var hours = Math.floor(duration / 3600);
     return (hours ? hours + ':' : '') + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
 }
+
+signOut.addEventListener('click', () => {
+    localStorage.setItem('user', '');
+    location.reload();
+    window.open('./index.html', '_self')
+});

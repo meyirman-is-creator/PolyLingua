@@ -129,7 +129,11 @@
               </button>
               <form class="input__video-link" id="youtubeForm">
                 <input class="youtube__input" type="text" id="youtubeLink" placeholder="Enter YouTube link">
-                <button class="youtube-video__find" type="submit"><i class="fi fi-rr-search"></i></button>
+                <button id="youtube-find-btn" class="youtube-video__find" type="submit" disabled>
+                  <i id="find-icon" class="fi fi-rr-search"></i>
+                  <div id="loader" class="loader" style="display: none;"></div>
+                  <span id="loader-x" class="loader-x" style="display: none;">x</span>
+                </button>
               </form>
             </div>
           </header>
@@ -157,38 +161,29 @@
                   <input type="file" class="fileInput-in" id="fileInput">
                 </div>
                 <video id="videoPlayer" src=""
-                  class="video-player" controls>
-                  <source id="videoSource" type="video/mp4">
+                  class="video-player" style="display:none;" controls>
+                  <source id="videoSource" type="video/mp4" >
                   Your browser does not support the video tag.
                 </video>
               </div>
 
               <div class="buttons">
-                <button class="upload__video" onclick="uploadVideo()">Upload Video</button>
-                <!-- <video id="videoPlayer" controls> -->
-                <!-- <source src="" type="video/mp4"> -->
-                <!-- Your browser does not support the video tag. -->
-                <!-- </video> -->
-                <button class="play" onclick="playAll()">Play</button>
-                <button class="pause" onclick="pauseAll()">Pause</button>
+                <button class="upload__video" id="videoUpload">Upload Video</button>
+                <input class="upload__video" type="file" id="videoInput" accept="video/mp4" style="display: none;">
+                <button class="play" id="playAll">Play</button>
+                <button class="pause" id="pauseAll">Pause</button>
 
               </div>
-              <!-- <input type="file" id="videoInput" accept="video/mp4"> -->
 
 
-              <audio class="audioPlayer" id="audioPlayer" controls>
+              <audio class="audioPlayer" id="audioPlayer" style="display: none;" controls>
                 <source src="" type="audio/mpeg">
                 Your browser does not support the audio tag.
               </audio>
+              <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
 
               <script type="module" src="./js/main__page.js"></script>
-              <script>
-                
-                
-              </script>
-              <script>
-                
-              </script>
+              
             </body>
 
             </html>
@@ -433,7 +428,11 @@
             </div>
 
 
-            <button class="translate" id="Translate">Translate</button>
+            <button class="translate" id="Translate">
+              <span>Translate</span>
+              <div id="Translate-loader" class="loader" style="display: none;" ></div>
+              <span id="Translate-loader-x" class="loader-x" style="display: none;">x</span>
+            </button>
           </div>
         </div>
       </div>
@@ -445,29 +444,45 @@
     crossorigin="anonymous"></script>
   <script type="module" src="js/main__page.js"></script>
   <script>
+    let controller;
     const from = document.getElementById("sourceLanguage");
     const to = document.getElementById("targetLanguage");
-
+    let translateLoader  =document.getElementById('Translate-loader');
+    let translateLoaderX  =document.getElementById('Translate-loader-x');
     document.getElementById('Translate').addEventListener('click', async () => {
+      translateLoader.style.display='block';
+    
       const optionFrom = from.value;
       const optionTo = to.value;
       const path = window.videoUri;
+      if (controller) {
+        controller.abort();
+      }
+      
+      // Create a new controller for the fetch request
+      controller = new AbortController();
+      const signal = controller.signal;
       try {
         const dataToSend = { optionTo: optionTo, optionFrom: optionFrom, path: path };
-        const response = await fetch('http://127.0.0.1:5501/api/data', {
+        const response = await fetch('https://translate-c3b6phuuwq-uc.a.run.app/api/data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(dataToSend)
+          body: JSON.stringify(dataToSend),
+          signal: signal,
         });
 
         const audioData = await response.arrayBuffer();
+        translateLoader.style.display='none';
         const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
+        localStorage.setItem('audioBlob', JSON.stringify(audioBlob));
         const audioBlobUrl = URL.createObjectURL(audioBlob);
         const videoElement = document.getElementById('videoPlayer');
         const audioElement = document.getElementById('audioPlayer');
         audioElement.src = audioBlobUrl;
+
+        
         document.addEventListener("DOMContentLoaded", function() {
                 var video = document.getElementById('videoPlayer');
                 var audio = document.getElementById('audioPlayer');
@@ -497,12 +512,38 @@
                 // Wait for metadata to be loaded for both elements
                 video.addEventListener('loadedmetadata', synchronizePlayback);
                 audio.addEventListener('loadedmetadata', synchronizePlayback);
+                video.addEventListener('play', function() {
+                    // console.log('Video started playing');
+                    audio.play();
+                });
+
+                // Event listener for when the video is paused
+                video.addEventListener('pause', function() {
+                    // console.log('Video paused');
+                    audio.pause();
+                });
                 audioElement.play();
                 videoElement.play();
+
             });
       } catch (error) {
         console.error('Ошибка при отправке запроса:', error);
       }
+    });
+    const slider = document.getElementById('slider')
+    slider.addEventListener("input", function() {
+      audio.volume = slider.value / 100;
+    });
+    
+    translateLoaderX.addEventListener('click', () => {
+      
+      translateLoader.style.display='none';
+      translateLoaderX.style.display='none';
+      
+        if (controller) {
+            controller.abort();
+            console.log('Request aborted by the user');
+        }
     });
   </script>
 </body>
