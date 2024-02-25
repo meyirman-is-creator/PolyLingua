@@ -468,24 +468,38 @@
         const videoElement = document.getElementById('videoPlayer');
         const audioElement = document.getElementById('audioPlayer');
         audioElement.src = audioBlobUrl;
-        Promise.all([
-          new Promise(resolve => videoElement.addEventListener('loadedmetadata', resolve)),
-          new Promise(resolve => audioElement.addEventListener('loadedmetadata', resolve))
-        ]).then(() => {
-          // Get durations of video and audio
-          const videoDuration = videoElement.duration;
-          const audioDuration = audioElement.duration;
+        document.addEventListener("DOMContentLoaded", function() {
+                var video = document.getElementById('videoPlayer');
+                var audio = document.getElementById('audioPlayer');
+                var isSeeking = false; 
 
-          // Calculate the ratio of durations
-          const rate = videoDuration / audioDuration;
+                function synchronizePlayback() {
+                    var durationRatio = video.duration / audio.duration;
+                    var playbackRate = 1; 
 
-          // Set the playback rate of the audio element
-          audioElement.playbackRate = rate;
+                    if (durationRatio !== 1) {
+                        playbackRate = durationRatio;
+                        audio.playbackRate = playbackRate;
+                    }
+                    video.addEventListener('seeking', function() {
+                        console.log('Seeking');
+                        isSeeking = true;
+                    });
 
-          // Optionally, play both video and audio
-          videoElement.play();
-          audioElement.play();
-        });
+                    // Listen for user seeked
+                    video.addEventListener('seeked', function() {
+                        console.log('Seeked');
+                        isSeeking = false;
+                        audio.currentTime = video.currentTime / playbackRate;
+                    });
+                }
+
+                // Wait for metadata to be loaded for both elements
+                video.addEventListener('loadedmetadata', synchronizePlayback);
+                audio.addEventListener('loadedmetadata', synchronizePlayback);
+                audioElement.play();
+                videoElement.play();
+            });
       } catch (error) {
         console.error('Ошибка при отправке запроса:', error);
       }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Info</title>
+</head>
+<body>
+    <video id="video" controls style="display: block; height: 700px; width: 500px;" >
+        <source src="https://storage.cloud.google.com/polylingua-videos/1708618730178_trial.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="duration"></div>
+    <img id="preview" src="" alt="Preview Photo" style="display: block; height: 700px;width: 500px;">
+    <button id="get" style="display: block;">Getprev</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById('video');
+            var durationDisplay = document.getElementById('duration');
+            var previewImage = document.getElementById('preview');
+
+            // Wait for metadata to be loaded for the video
+            video.addEventListener('loadedmetadata', function() {
+                // Get video duration
+                var durationInSeconds = video.duration;
+                var durationFormatted = formatDuration(durationInSeconds);
+                durationDisplay.textContent = 'Duration: ' + durationFormatted;
+
+                // Get preview photo
+                // capturePreview();
+            });
+
+            function formatDuration(durationInSeconds) {
+                var minutes = Math.floor(durationInSeconds / 60);
+                var seconds = Math.floor(durationInSeconds % 60);
+                return minutes + ' minutes ' + seconds + ' seconds';
+            }
+
+        
+
+            // Load the video
+            video.load();
+        });
+        function capturePreview() {
+    var offscreenCanvas = document.createElement('canvas');
+    var offscreenCtx = offscreenCanvas.getContext('2d');
+
+    offscreenCanvas.width = video.videoWidth;
+    offscreenCanvas.height = video.videoHeight;
+
+    // Draw the video onto the offscreen canvas
+    offscreenCtx.drawImage(video, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
+
+    // Create a new canvas element
+    var canvas = document.createElement('canvas');
+    canvas.width = offscreenCanvas.width;
+    canvas.height = offscreenCanvas.height;
+    var ctx = canvas.getContext('2d');
+
+    // Draw the offscreen canvas onto the new canvas
+    ctx.drawImage(offscreenCanvas, 0, 0);
+
+    // Convert the canvas to a data URL
+    var previewURL = canvas.toDataURL('image/jpeg');
+    previewImage.src = previewURL;
+    previewImage.style.display = 'inline';
+}
+
+        const get = document.getElementById("get");
+        get.addEventListener('click',function(){
+            capturePreview();
+        })
+    </script>
+</body>
+</html>
