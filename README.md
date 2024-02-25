@@ -6,6 +6,7 @@
 - [Running Locally](#running-locally)
 - [Configuration](#configuration)
 - [Access](#access)
+- [Contact us](#contact-us)
 ## Installation
 **Clone the repository:**
 
@@ -36,7 +37,6 @@ Generate yourself API keys for Firebase project, YouTube API and Google Cloud SD
 ### You can find our project at https://polylingua-94f50.web.app
 
 ## Contact us
-### sultan.mukashev@gmail.com
 ### sultan.mukashev2005@gmail.com
 ### sarsenbaymeyirman@gmail.com
 ### prerequit@gmail.com
