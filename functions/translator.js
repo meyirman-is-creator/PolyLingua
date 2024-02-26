@@ -150,7 +150,7 @@ app.post('/upload-video', upload.single('video'),cors({origin: allowedOrigins}) 
         fileStream.end(req.file.buffer);
   
         fileStream.on('finish', () => {
-            const videoUrl = `https://storage.cloud.google.com/${bucketName}/${filename}`;
+            const videoUrl = `https://storage.googleapis.com/${bucketName}/${filename}`;
             const videoUri = `gs://${bucketName}/${filename}`
             console.log("Success! ", videoUri, " ", videoUrl);
             res.json({ videoUrl: videoUrl, videoUri: videoUri, name: filename});
@@ -179,14 +179,14 @@ app.post('/upload-yt-video',upload.single('video'),cors({origin: allowedOrigins}
       try {
           const ytfilename = await uploadVideoToStorage(videoId);
           console.log('Video upload completed successfully.');
-          const ytvideoUrl = `https://storage.cloud.google.com/${bucketName}/${ytfilename}`;
+          const ytvideoUrl = `https://storage.googleapis.com/${bucketName}/${ytfilename}`;
           const ytvideoUri = `gs://${bucketName}/${ytfilename}`
           console.log("Success! ",ytvideoUri," ",ytvideoUrl);
           res.json({ videoUrl: ytvideoUrl, videoUri: ytvideoUri, name: ytfilename});
       } catch (error) {
           console.error('Error uploading video:', error);
       }
-      const ytvideoUrl = `https://storage.cloud.google.com/${bucketName}/${ytfilename}`;
+      const ytvideoUrl = `https://storage.googleapis.com/${bucketName}/${ytfilename}`;
       const ytvideoUri = `gs://${bucketName}/${ytfilename}`
       console.log("Success! ",ytvideoUri," ",ytvideoUrl);
       res.json({ videoUrl: ytvideoUrl, videoUri: ytvideoUri});

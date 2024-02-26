@@ -39,6 +39,12 @@ body {
 }
 .main-page__body{
     padding-top: 20px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #202040;
+    height: 100%;
+    border-radius: 30px;
+    height: 86%;
 }
 .main-page__inner {
     display: flex;
@@ -157,9 +163,7 @@ body {
     margin-left: 10px;
 }
 
-.main-page__body {
-    margin-top: 10px;
-}
+
 
 .offcanvas {
     background-color: #202040;
@@ -177,12 +181,6 @@ body {
 
 }
 
-.main-page__body {
-    background-color: #202040;
-    height: 100%;
-    border-radius: 30px;
-    height: 86%;
-}
 
 .main-page__header {
     display: flex;
@@ -415,6 +413,15 @@ label {
         transform: rotate(360deg);
     }
 }
-.slider{
-    
+.slider {
+    background: #8A8AC3;
+}
+
+/* Стилизация ползунка */
+.slider::-webkit-slider-thumb {
+    background: #A922FD;
+}
+
+.slider::-moz-range-thumb {
+    background: #A922FD; 
 }

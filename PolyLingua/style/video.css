@@ -144,9 +144,13 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 .video-blog{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+}
+.slider-volume{
+    text-align: center;
 }

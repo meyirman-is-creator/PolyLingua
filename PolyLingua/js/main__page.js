@@ -454,16 +454,5 @@ document.getElementById('pauseAll').addEventListener('click',()=> {
     videoPlayer.pause();
     audioPlayer.pause();
 })
-function syncAudioWithVideoTime() {
-    // Get the current time scrolled in the video
-    const videoTimeScrolled = (videoPlayer.currentTime / videoPlayer.duration) * videoPlayer.scrollWidth;
-
-    // Map video time scrolled to audio time (assuming audio duration is equal to video duration)
-    const audioTime = (videoTimeScrolled / videoPlayer.scrollWidth) * audioPlayer.duration;
-
-    // Set audio playback position
-    audioPlayer.currentTime = audioTime;
-}
-
 // Add scroll event listener to sync audio with video time scrolled
-videoPlayer.addEventListener('timeupdate', syncAudioWithVideoTime);
+// videoPlayer.addEventListener('timeupdate', syncAudioWithVideoTime);

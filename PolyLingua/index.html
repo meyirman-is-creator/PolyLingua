@@ -160,16 +160,15 @@
                   <p class="dropArea__text">Drag & Drop video file here or to upload</p>
                   <input type="file" class="fileInput-in" id="fileInput">
                 </div>
-                <video id="videoPlayer" src=""
-                  class="video-player" style="display:none;" controls>
-                  <source id="videoSource" type="video/mp4" >
+                <video id="videoPlayer" src="" class="video-player" style="display:none;" controls>
+                  <source id="videoSource" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </div>
 
               <div class="buttons">
                 <button class="upload__video" id="videoUpload">Upload Video</button>
-                <input class="upload__video" type="file" id="videoInput" accept="video/mp4" >
+                <input class="upload__video" type="file" id="videoInput" accept="video/mp4" style="display: none;">
                 <button class="play" id="playAll">Play</button>
                 <button class="pause" id="pauseAll">Pause</button>
 
@@ -180,10 +179,13 @@
                 <source src="" type="audio/mpeg">
                 Your browser does not support the audio tag.
               </audio>
-              <input type="range" min="0" max="100" value="50" class="slider" id="slider">
+              <div class="slider-volume">
+                <input type="range" step="0.01" min="0" max="100" value="3" class="slider" id="slider">
+
+              </div>
 
               <script type="module" src="./js/main__page.js"></script>
-              
+
             </body>
 
             </html>
@@ -430,7 +432,7 @@
 
             <button class="translate" id="Translate">
               <span>Translate</span>
-              <div id="Translate-loader" class="loader" style="display: none;" ></div>
+              <div id="Translate-loader" class="loader" style="display: none;"></div>
               <span id="Translate-loader-x" class="loader-x" style="display: none;">x</span>
             </button>
           </div>
@@ -447,18 +449,20 @@
     let controller;
     const from = document.getElementById("sourceLanguage");
     const to = document.getElementById("targetLanguage");
-    let translateLoader  =document.getElementById('Translate-loader');
-    let translateLoaderX  =document.getElementById('Translate-loader-x');
+    let translateLoader = document.getElementById('Translate-loader');
+    let translateLoaderX = document.getElementById('Translate-loader-x');
+    let video = document.getElementById('videoPlayer');
+    let audio = document.getElementById('audioPlayer');
     document.getElementById('Translate').addEventListener('click', async () => {
-      translateLoader.style.display='block';
-    
+      translateLoader.style.display = 'block';
+
       const optionFrom = from.value;
       const optionTo = to.value;
       const path = window.videoUri;
       if (controller) {
         controller.abort();
       }
-      
+
       // Create a new controller for the fetch request
       controller = new AbortController();
       const signal = controller.signal;
@@ -474,7 +478,7 @@
         });
 
         const audioData = await response.arrayBuffer();
-        translateLoader.style.display='none';
+        translateLoader.style.display = 'none';
         const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
         localStorage.setItem('audioBlob', JSON.stringify(audioBlob));
         const audioBlobUrl = URL.createObjectURL(audioBlob);
@@ -482,68 +486,68 @@
         const audioElement = document.getElementById('audioPlayer');
         audioElement.src = audioBlobUrl;
 
-        
-        document.addEventListener("DOMContentLoaded", function() {
-                var video = document.getElementById('videoPlayer');
-                var audio = document.getElementById('audioPlayer');
-                var isSeeking = false; 
 
-                function synchronizePlayback() {
-                    var durationRatio = video.duration / audio.duration;
-                    var playbackRate = 1; 
+        document.addEventListener("DOMContentLoaded", function () {
 
-                    if (durationRatio !== 1) {
-                        playbackRate = durationRatio;
-                        audio.playbackRate = playbackRate;
-                    }
-                    video.addEventListener('seeking', function() {
-                        console.log('Seeking');
-                        isSeeking = true;
-                    });
+          var isSeeking = false;
 
-                    // Listen for user seeked
-                    video.addEventListener('seeked', function() {
-                        console.log('Seeked');
-                        isSeeking = false;
-                        audio.currentTime = video.currentTime / playbackRate;
-                    });
-                }
+          function synchronizePlayback() {
+            var durationRatio = video.duration / audio.duration;
+            var playbackRate = 1;
 
-                // Wait for metadata to be loaded for both elements
-                video.addEventListener('loadedmetadata', synchronizePlayback);
-                audio.addEventListener('loadedmetadata', synchronizePlayback);
-                video.addEventListener('play', function() {
-                    // console.log('Video started playing');
-                    audio.play();
-                });
-
-                // Event listener for when the video is paused
-                video.addEventListener('pause', function() {
-                    // console.log('Video paused');
-                    audio.pause();
-                });
-                audioElement.play();
-                videoElement.play();
-
+            if (durationRatio !== 1) {
+              playbackRate = durationRatio;
+              audio.playbackRate = playbackRate;
+            }
+            video.addEventListener('seeking', function () {
+              console.log('Seeking');
+              isSeeking = true;
             });
+
+            // Listen for user seeked
+            video.addEventListener('seeked', function () {
+              console.log('Seeked');
+              isSeeking = false;
+              audio.currentTime = video.currentTime / playbackRate;
+            });
+          }
+
+          // Wait for metadata to be loaded for both elements
+          video.addEventListener('loadedmetadata', synchronizePlayback);
+          audio.addEventListener('loadedmetadata', synchronizePlayback);
+          video.addEventListener('play', function () {
+            // console.log('Video started playing');
+            audio.play();
+          });
+
+          // Event listener for when the video is paused
+          video.addEventListener('pause', function () {
+            // console.log('Video paused');
+            audio.pause();
+          });
+          audioElement.play();
+          videoElement.play();
+
+        });
       } catch (error) {
         console.error('Ошибка при отправке запроса:', error);
       }
     });
+
     const slider = document.getElementById('slider')
-    slider.addEventListener("input", function() {
-      audio.volume = slider.value / 100;
+    slider.addEventListener("input", function () {
+      console.log(slider.value);
+      audio.volume = slider.value/100;
     });
-    
     translateLoaderX.addEventListener('click', () => {
-      
-      translateLoader.style.display='none';
-      translateLoaderX.style.display='none';
-      
-        if (controller) {
-            controller.abort();
-            console.log('Request aborted by the user');
-        }
+
+      translateLoader.style.display = 'none';
+      translateLoaderX.style.display = 'none';
+
+      if (controller) {
+        controller.abort();
+        console.log('Request aborted by the user');
+      }
     });
   </script>
 </body>
