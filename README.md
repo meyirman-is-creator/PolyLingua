@@ -33,6 +33,18 @@ After this just open 'index.html' file with preferred Web Browser and use our se
 ## Configuration
 Generate yourself API keys for Firebase project, YouTube API and Google Cloud SDK, which has to be downloaded externally. Also create your Google Cloud console and Firebase Projects to use all functions by yourself.   
 
+## Usage Instructions
+
+**Discovering Video Translations:**
+
+1. **Search:** Paste this link into the search bar - `https://www.youtube.com/watch?v=LRCqEX7l8jI` and click the search icon.
+2. **Choose Language:** Select the language you wish to translate the video into and then click the 'Translate' button.
+3. **Play Translated Content:** Once the translation is complete, press the 'Play' button to start the video and its audio translation. You can pause the video and audio anytime by pressing the 'Pause' button.
+
+**Accessing Your Profile:**
+
+If you wish to access system features like opening your profile or viewing the list of watched videos without registering, use the test email `test123@gmail.com` with the password `123456`.
+
 ## Access
 ### You can find our project at https://polylingua-94f50.web.app
 
