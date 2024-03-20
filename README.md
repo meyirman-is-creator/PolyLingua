@@ -35,6 +35,9 @@ Generate yourself API keys for Firebase project, YouTube API and Google Cloud SD
 
 ## Usage Instructions
 
+![IMG_4150](https://github.com/meyirman-is-creator/PolyLingua/assets/138922933/f2cee395-e3e8-4994-b065-97cbb2317b97)
+
+
 **Discovering Video Translations:**
 
 1. **Search:** Paste this link into the search bar - `https://www.youtube.com/watch?v=LRCqEX7l8jI` and click the search icon.
